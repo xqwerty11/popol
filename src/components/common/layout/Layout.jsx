@@ -2,10 +2,10 @@ import './Layout.scss';
 
 export default function Layout({ title, children }) {
 	return (
-		<section className='layout'>
+		<section>
 			<figure></figure>
 
-			<div className='content'>
+			<div>
 				<h1>{title}</h1>
 				{children}
 			</div>
