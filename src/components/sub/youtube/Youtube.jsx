@@ -26,6 +26,7 @@ export default function Youtube() {
 
 	return (
 		<Layout title={'Youtube'}>
+			<p>test</p>
 			{Youtube.map((data, idx) => {
 				return (
 					<article key={idx}>
