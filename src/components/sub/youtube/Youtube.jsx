@@ -16,6 +16,7 @@ import { useEffect, useState } from 'react';
 export default function Youtube() {
 	const [Youtube, setYoutube] = useState([]);
 	const [IsModal, setIsModal] = useState(false);
+	const [Index, setIndex] = useState(0);
 
 	const fetchYoutube = () => {
 		const api_key = process.env.REACT_APP_YOUTUBE_API;
@@ -41,7 +42,13 @@ export default function Youtube() {
 						<article key={idx}>
 							<h2>{data.snippet.title}</h2>
 							<p>{data.snippet.description}</p>
-							<div className='pic' onClick={() => setIsModal(true)}>
+							<div
+								className='pic'
+								onClick={() => {
+									setIndex(idx);
+									setIsModal(true);
+								}}
+							>
 								<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
 							</div>
 						</article>
@@ -52,7 +59,7 @@ export default function Youtube() {
 			{IsModal && (
 				<Modal setIsModal={setIsModal}>
 					<iframe
-						src={`https://www.youtube.com/embed/${Youtube[0].snippet.resourceId.videoId}`}
+						src={`https://www.youtube.com/embed/${Youtube[Index].snippet.resourceId.videoId}`}
 						title='youtube'
 					></iframe>
 				</Modal>
