@@ -49,7 +49,14 @@ export default function Youtube() {
 				})}
 			</Layout>
 
-			{IsModal && <Modal setIsModal={setIsModal}></Modal>}
+			{IsModal && (
+				<Modal setIsModal={setIsModal}>
+					<iframe
+						src={`https://www.youtube.com/embed/${Youtube[0].snippet.resourceId.videoId}`}
+						title='youtube'
+					></iframe>
+				</Modal>
+			)}
 		</>
 	);
 }
