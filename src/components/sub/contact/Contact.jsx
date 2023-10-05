@@ -29,6 +29,8 @@ export default function Contact() {
 		});
 		//마커 객체에 지도 객체 연결
 		marker.setMap(instance.current);
+		const mapTypeControl = new kakao.maps.MapTypeControl();
+		instance.current.addControl(mapTypeControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 	}, []);
 	useEffect(() => {
 		//Traffic 값이 바뀔때마다 실행될 구문
