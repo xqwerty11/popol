@@ -16,7 +16,7 @@ export default function Department() {
 
 	return (
 		<Layout title={'Department'}>
-			<div>
+			<div className='memberBox'>
 				{Department.map((member, idx) => {
 					return (
 						<article key={idx}>
