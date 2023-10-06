@@ -16,7 +16,7 @@
 				color: #555;
 				margin-right: 20px;
 				position: relative;
-				top: 20px;
+				top: 10px;
 			}
 			input[type='text'],
 			input[type='email'] {
@@ -30,6 +30,48 @@
 				&:focus {
 					background: rgb(222, 245, 252);
 				}
+			}
+		}
+
+		.lower {
+			width: 100%;
+			margin-bottom: 10px;
+			label {
+				display: block;
+				margin-bottom: 5px;
+				font: bold 1rem/1 'arial';
+				color: #555;
+			}
+			textarea {
+				width: 100%;
+				padding: 10px;
+				border: none;
+				border-bottom: 1px solid #555;
+				margin-right: 50px;
+				resize: none;
+				outline: none;
+				transition: 0.5s;
+				&:focus {
+					background: lightcyan;
+				}
+			}
+		}
+
+		.btnSet {
+			width: 100%;
+			padding-right: 20px;
+			display: flex;
+			justify-content: space-between;
+			gap: 50px;
+
+			input {
+				display: block;
+				height: 40px;
+				background: transparent;
+				border: 1px solid #666;
+				font: 1rem/40px 'arial';
+				color: #555;
+				text-align: center;
 			}
 		}
 	}

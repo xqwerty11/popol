@@ -150,7 +150,7 @@ export default function Contact() {
 						<textarea name='message' className='msgEl' />
 					</div>
 
-					<div className='btnSer'>
+					<div className='btnSet'>
 						<input type='reset' value='Cancel' />
 						<input type='submit' value='Send' />
 					</div>
