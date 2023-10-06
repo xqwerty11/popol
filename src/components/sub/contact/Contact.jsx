@@ -92,14 +92,23 @@ export default function Contact() {
 	const sendEmail = (e) => {
 		e.preventDefault();
 
-		emailjs.sendForm('service_kja8zyh', 'template_rc4ibus', form.current, 'aTt5tuB-rYggjYZia').then(
-			(result) => {
-				alert('문의내용이 메일로 발송되었습니다.');
-			},
-			(error) => {
-				alert('문의내용 전송에 실패했습니다.');
-			}
-		);
+		//sendForm메서드는 각 키값을 문자열로만 인수로 전달되도록 type지정되어 있기 떄문에
+		//변수를 `${}`로 감싸서 문자형식으로 전달
+		emailjs
+			.sendForm(
+				`${process.env.REACT_APP_SERVICE_ID}`,
+				`${process.env.REACT_APP_TEMPLATE_ID}`,
+				form.current,
+				`${process.env.REACT_APP_PUBLIC_KEY}`
+			)
+			.then(
+				(result) => {
+					alert('문의내용이 메일로 발송되었습니다.');
+				},
+				(error) => {
+					alert('문의내용 전송에 실패했습니다.');
+				}
+			);
 	};
 	return (
 		<Layout title={'Contact'}>
