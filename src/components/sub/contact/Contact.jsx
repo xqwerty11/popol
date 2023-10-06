@@ -46,6 +46,9 @@ export default function Contact() {
 	});
 
 	useEffect(() => {
+		//index값이 변경될떄마다 새로운 지도 레이어가 중첩되므로
+		//일단은 기존 map안의 모든 요소를 없애서 초기화
+		map.current.innerHTML = '';
 		//객체 정보를 활용한 지도 객체 생성
 		instance.current = new kakao.maps.Map(map.current, {
 			center: info.current[Index].latlng,
@@ -79,7 +82,7 @@ export default function Contact() {
 
 			<ul>
 				{info.current.map((el, idx) => (
-					<li key={idx} onClick={() => setIndex(idx)}>
+					<li className={Index === idx ? 'on' : ''} key={idx} onClick={() => setIndex(idx)}>
 						{el.title}
 					</li>
 				))}

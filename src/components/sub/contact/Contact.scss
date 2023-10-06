@@ -7,4 +7,17 @@
 		height: 60vh;
 		background: #111;
 	}
+
+	ul {
+		display: flex;
+		gap: 20px;
+
+		li {
+			cursor: pointer;
+		}
+
+		li.on {
+			color: hotpink;
+		}
+	}
 }
