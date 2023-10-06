@@ -3,6 +3,7 @@ import './Gallery.scss';
 import { useEffect, useState } from 'react';
 
 export default function Gallery() {
+	const [Pics, setPics] = useState([]);
 	const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
 	const method_interest = 'flickr.interestingness.getList';
 	const num = 500;
@@ -12,12 +13,18 @@ export default function Gallery() {
 		fetch(url)
 			.then((data) => data.json())
 			.then((json) => {
-				console.log(json);
+				setPics(json.photos.photo);
 			});
 	}, []);
 	return (
 		<Layout title={'Gallery'}>
-			<p>갤러리 페이지입니다.</p>
+			{Pics.map((data, idx) => {
+				return (
+					<article key={idx}>
+						<h2>{data.title}</h2>
+					</article>
+				);
+			})}
 		</Layout>
 	);
 }
