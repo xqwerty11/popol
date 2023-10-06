@@ -5,6 +5,33 @@
 	#mailbox {
 		width: 50%;
 		margin-bottom: 100px;
+
+		.upper {
+			width: 100%;
+			display: flex;
+			margin-bottom: 50px;
+
+			label {
+				font: bold 1rem/1 'arial';
+				color: #555;
+				margin-right: 20px;
+				position: relative;
+				top: 20px;
+			}
+			input[type='text'],
+			input[type='email'] {
+				border: none;
+				padding: 10px 20px;
+				border-bottom: 1px solid #555;
+				margin-right: 50px;
+				outline: none;
+				transition: 0.5s;
+
+				&:focus {
+					background: rgb(222, 245, 252);
+				}
+			}
+		}
 	}
 
 	.container {
