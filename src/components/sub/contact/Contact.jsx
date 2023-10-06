@@ -6,32 +6,58 @@ export default function Contact() {
 	const map = useRef(null);
 	const instance = useRef(null);
 	const [Traffic, setTraffic] = useState(false);
+	const [Index, setIndex] = useState(2);
 
 	const { kakao } = window;
 	//첫번째 지도를 출력하기 위한 객체정보
-	const info = {
-		latlng: new kakao.maps.LatLng(37.58478163978524, 126.88566424098676),
-		imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
-		imgSize: new kakao.maps.Size(232, 99),
-		imgPos: { offset: new kakao.maps.Point(116, 99) },
-	};
+	const info = useRef([
+		{
+			title: '삼성역 코엑스',
+			latlng: new kakao.maps.LatLng(37.51100661425726, 127.06162026853143),
+			imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
+			imgSize: new kakao.maps.Size(232, 99),
+			imgPos: { offset: new kakao.maps.Point(116, 99) },
+		},
+		{
+			title: '넥슨 본사',
+			latlng: new kakao.maps.LatLng(37.40211707077346, 127.10344953763003),
+			imgSrc: `${process.env.PUBLIC_URL}/img/marker2.png`,
+			imgSize: new kakao.maps.Size(232, 99),
+			imgPos: { offset: new kakao.maps.Point(116, 99) },
+		},
+		{
+			title: '서울 시청',
+			latlng: new kakao.maps.LatLng(37.5662952, 126.9779451),
+			imgSrc: `${process.env.PUBLIC_URL}/img/marker3.png`,
+			imgSize: new kakao.maps.Size(232, 99),
+			imgPos: { offset: new kakao.maps.Point(116, 99) },
+		},
+	]);
+
 	//위의 정보값을 활용한 마커 객체 생성
 	const marker = new kakao.maps.Marker({
-		position: info.latlng,
-		image: new kakao.maps.MarkerImage(info.imgSrc, info.imgSize, info.imgPos),
+		position: info.current[Index].latlng,
+		image: new kakao.maps.MarkerImage(
+			info.current[Index].imgSrc,
+			info.current[Index].imgSize,
+			info.current[Index].imgPos
+		),
 	});
 
 	useEffect(() => {
 		//객체 정보를 활용한 지도 객체 생성
 		instance.current = new kakao.maps.Map(map.current, {
-			center: info.latlng,
+			center: info.current[Index].latlng,
 			level: 1,
 		});
+
 		//마커 객체에 지도 객체 연결
 		marker.setMap(instance.current);
+		//지도타입변경
 		const mapTypeControl = new kakao.maps.MapTypeControl();
 		instance.current.addControl(mapTypeControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 	}, []);
+
 	useEffect(() => {
 		//Traffic 값이 바뀔때마다 실행될 구문
 		Traffic
@@ -43,6 +69,7 @@ export default function Contact() {
 		<Layout title={'Contact'}>
 			{/* <button onClick={() => setTraffic(true)}>주변 교통정보 보기</button>
 			<button onClick={() => setTraffic(false)}>주변 교통정보 끄기</button> */}
+
 			<button onClick={() => setTraffic(!Traffic)}>
 				{Traffic ? '교통정보 끄기' : '교통정보 키기'}
 			</button>
