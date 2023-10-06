@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Layout from '../../common/layout/Layout';
 import emailjs from '@emailjs/browser';
 import './Contact.scss';
