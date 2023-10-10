@@ -7,7 +7,9 @@ const my_id = '199282981@N03';
 
 export default function Gallery() {
 	const [Pics, setPics] = useState([]);
-	const [Loader, setLoader] = useState(true);
+	const [Loader, setLoader] = useState(false);
+	const refInput = useRef(null);
+	const refFrame = useRef(null);
 
 	const fetchData = async (opt) => {
 		let url = '';
@@ -15,14 +17,16 @@ export default function Gallery() {
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
-		const num = 50;
+		const num = 500;
 
 		if (opt.type === 'interest') {
 			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
 		}
+
 		if (opt.type === 'user') {
 			url = `https://www.flickr.com/services/rest/?method=${method_user}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&user_id=${opt.id}`;
 		}
+
 		if (opt.type === 'search') {
 			url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&tags=${opt.tags}`;
 		}
@@ -32,9 +36,22 @@ export default function Gallery() {
 		if (json.photos.photo.length === 0) {
 			return alert('해당 검색어의 결과값이 없습니다');
 		}
+		//실제 데이터가 state에 담기는 순간 가상돔이 생성되는 순간
 		setPics(json.photos.photo);
+
+		let count = 0;
+		const imgs = refFrame.current?.querySelectorAll('img');
+
+		imgs.forEach((img, idx) => {
+			img.onload = () => {
+				++count;
+				console.log('현재 로딩된 img갯수', count);
+				if (count === imgs.length) {
+					console.log('모든 이미지 소스 렌더링 완료!');
+				}
+			};
+		});
 	};
-	const refInput = useRef(null);
 
 	useEffect(() => {
 		fetchData({ type: 'user', id: my_id });
@@ -64,10 +81,11 @@ export default function Gallery() {
 				<button onClick={() => fetchData({ type: 'user', id: my_id })}>My Gallery</button>
 				<button onClick={() => fetchData({ type: 'interest' })}>Interest Gallery</button>
 			</div>
+
 			{Loader ? (
 				<img className='loading' src={`${process.env.PUBLIC_URL}/img/loading.gif`} alt='loading' />
 			) : (
-				<div className='picFrame'>
+				<div className='picFrame' ref={refFrame}>
 					<Masonry
 						elementType={'div'}
 						options={{ transitionDuration: '0.5s' }}
