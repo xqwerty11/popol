@@ -73,7 +73,9 @@ export default function Gallery() {
 											src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
 											alt=''
 										/>
-										<span>{data.owner}</span>
+										<span onClick={() => fetchData({ type: 'user', id: data.owner })}>
+											{data.owner}
+										</span>
 									</div>
 								</div>
 							</article>
