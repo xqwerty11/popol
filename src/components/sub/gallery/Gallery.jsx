@@ -14,8 +14,10 @@ export default function Gallery() {
 	const [Fix, setFix] = useState(false);
 	//현재 갤러리 타입이 User타입인지 확인하기 위한 state추가
 	const [IsUser, setIsUser] = useState(true);
+
 	const [ActiveURL, setActiveURL] = useState('');
-	const [Open, setOpen] = useState(false);
+
+	const [IsModal, setIsModal] = useState(false);
 
 	const refInput = useRef(null);
 	const refFrame = useRef(null);
@@ -156,7 +158,7 @@ export default function Gallery() {
 											alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
 											onClick={(e) => {
 												setActiveURL(e.target.getAttribute('alt'));
-												setOpen(true);
+												setIsModal(true);
 											}}
 										/>
 										<h2>{data.title}</h2>
@@ -198,8 +200,8 @@ export default function Gallery() {
 				</div>
 			</Layout>
 
-			{Open && (
-				<Modal>
+			{IsModal && (
+				<Modal setIsModal={setIsModal}>
 					<img src={ActiveURL} alt='img' />
 				</Modal>
 			)}
