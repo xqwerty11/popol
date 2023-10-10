@@ -12,6 +12,9 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+body {
+	background: #efefef;
+}
 html {
 	&::-webkit-scrollbar {
 		width: 10px;
