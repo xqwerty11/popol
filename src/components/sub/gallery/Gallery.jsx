@@ -25,11 +25,20 @@ export default function Gallery() {
 						<article key={idx}>
 							<div className='inner'>
 								<img
+									className='pic'
 									src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
 									alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
 								/>
 
 								<h2>{data.title}</h2>
+
+								<div className='profile'>
+									<img
+										src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
+										alt=''
+									/>
+									<span>{data.owner}</span>
+								</div>
 							</div>
 						</article>
 					);

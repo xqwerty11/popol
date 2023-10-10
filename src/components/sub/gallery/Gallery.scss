@@ -13,11 +13,28 @@
 
 			.inner {
 				width: 100%;
-				padding: 5px;
+				padding: 10px;
 				background: #fff;
+				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
 
-				img {
+				.pic {
 					width: 100%;
+				}
+				h2 {
+					font: normal 1rem/1.2 'arial';
+					color: #555;
+					margin-top: 10px;
+					margin-bottom: 40px;
+				}
+				.profile {
+					width: 100%;
+					display: flex;
+					align-items: center;
+					gap: 20px;
+
+					span {
+						font-size: 0.8rem;
+					}
 				}
 			}
 		}
