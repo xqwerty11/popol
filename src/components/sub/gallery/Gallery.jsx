@@ -26,7 +26,7 @@ export default function Gallery() {
 	return (
 		<Layout title={'Gallery'}>
 			<div className='picFrame'>
-				{/* 반복 돈ㄴ article요소를 Masonry로 wrapping후 세팅 */}
+				{/* 반복 도는 article요소를 Masonry로 wrapping후 세팅 */}
 				<Masonry
 					elementType={'div'} //Manonry컴포넌트가 변환될 태그명 지정
 					options={{ transitionDuration: '0.5s' }} //박스모션시 transition 시간 설정
