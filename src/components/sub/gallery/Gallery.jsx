@@ -50,8 +50,11 @@ export default function Gallery() {
 			img.onload = () => {
 				++count;
 				console.log('현재 로딩된 img갯수', count);
-				if (count === imgs.length) {
+				//interest gallery에서 특정 사용자 갤러리 호출시 이미 interest화면에서 2개의 이미지 이미 캐싱처리 되어 있기 떄문에
+				//전체 이미지 갯수에서 -2를 빼줘야지 무한로딩 오류 해결
+				if (count === imgs.length - 2) {
 					console.log('모든 이미지 소스 렌더링 완료!');
+
 					setLoader(false);
 					refFrame.current.classList.add('on');
 				}
@@ -95,6 +98,7 @@ export default function Gallery() {
 						const btns = refBtnSet.current.querySelectorAll('button');
 						btns.forEach((btn) => btn.classList.remove('on'));
 						e.target.classList.add('on');
+
 						fetchData({ type: 'user', id: my_id });
 					}}
 				>
@@ -111,6 +115,7 @@ export default function Gallery() {
 						const btns = refBtnSet.current.querySelectorAll('button');
 						btns.forEach((btn) => btn.classList.remove('on'));
 						e.target.classList.add('on');
+
 						fetchData({ type: 'interest' });
 					}}
 				>
