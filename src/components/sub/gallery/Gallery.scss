@@ -9,6 +9,15 @@
 	}
 	.picFrame {
 		width: 100%;
+		opacity: 0;
+		transform: translateY(200px);
+		transition: 0.5s;
+
+		&.on {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+
 		&::after {
 			content: '';
 			display: block;

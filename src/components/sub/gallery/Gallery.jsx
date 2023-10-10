@@ -12,6 +12,11 @@ export default function Gallery() {
 	const refFrame = useRef(null);
 
 	const fetchData = async (opt) => {
+		//이벤트 버튼 (interest gallery, my gallery 버튼 클릭할때마다)
+		//새롭게 데이터 fetching을 해야되므로 다시 로딩바 보이게 하고
+		//기존 frame은 안보이도록 on 클래스 제거
+		setLoader(true);
+		refFrame.current.classList.remove('on');
 		let url = '';
 		const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
 		const method_interest = 'flickr.interestingness.getList';
@@ -49,6 +54,7 @@ export default function Gallery() {
 				if (count === imgs.length) {
 					console.log('모든 이미지 소스 렌더링 완료!');
 					setLoader(false);
+					refFrame.current.classList.add('on');
 				}
 			};
 		});
@@ -82,9 +88,11 @@ export default function Gallery() {
 				<button onClick={() => fetchData({ type: 'user', id: my_id })}>My Gallery</button>
 				<button onClick={() => fetchData({ type: 'interest' })}>Interest Gallery</button>
 			</div>
+
 			{Loader && (
 				<img className='loading' src={`${process.env.PUBLIC_URL}/img/loading.gif`} alt='loading' />
 			)}
+
 			<div className='picFrame' ref={refFrame}>
 				<Masonry
 					elementType={'div'}
