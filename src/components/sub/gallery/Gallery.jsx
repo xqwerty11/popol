@@ -46,6 +46,8 @@ export default function Gallery() {
 
 	return (
 		<Layout title={'Gallery'}>
+			<button onClick={() => fetchData({ type: 'user', id: my_id })}>My Gallery</button>
+			<button onClick={() => fetchData({ type: 'interest' })}>Interest Gallery</button>
 			<div className='picFrame'>
 				{/* 반복 도는 article요소를 Masonry로 wrapping후 세팅 */}
 				<Masonry
