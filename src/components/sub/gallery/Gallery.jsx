@@ -11,6 +11,8 @@ export default function Gallery() {
 	//대체이미지가 추가되었는지 아닌지를 확인하는 state
 	//Fix(true): 대체이미지 추가됨, Fix(false): 대체이미지 적용안됨
 	const [Fix, setFix] = useState(false);
+	//현재 갤러리 타입이 User타입인지 확인하기 위한 state추가
+	const [IsUser, setIsUser] = useState(true);
 	const refInput = useRef(null);
 	const refFrame = useRef(null);
 	const refBtnSet = useRef(null);
@@ -74,6 +76,8 @@ export default function Gallery() {
 			<div className='searchBox'>
 				<form
 					onSubmit={(e) => {
+						//검색갤러리 이벤트 발생시 Isuser값을 false로 변경
+						setIsUser(false);
 						e.preventDefault();
 
 						if (refInput.current.value.trim() === '') {
@@ -93,6 +97,8 @@ export default function Gallery() {
 				<button
 					className='on'
 					onClick={(e) => {
+						//my callery버튼 클릭시 User type갤러리이기 때문에 IsUser값을 true로 변경
+						setIsUser(true);
 						//각 버튼 클릭시 해당 버튼에 만약 on클래스가 있으면 이미 활성화 되어 있는 버튼이므로 return으로 종료해서
 						//fetchData함수 호출 방지
 						if (e.target.classList.contains('on')) return;
@@ -110,6 +116,9 @@ export default function Gallery() {
 
 				<button
 					onClick={(e) => {
+						//Interest Gallery는 User type 갤러리가 아니기 때문에
+						//IsUser값을 false로 변경
+						setIsUser(false);
 						//각 버튼 클릭시 해당 버튼에 만약 on클래스가 있으면 이미 활성화 되어 있는 버튼이므로 return으로 종료해서
 						//fetchData함수 호출 방지
 						if (e.target.classList.contains('on')) return;
@@ -161,7 +170,15 @@ export default function Gallery() {
 												e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif');
 											}}
 										/>
-										<span onClick={() => fetchData({ type: 'user', id: data.owner })}>
+										<span
+											onClick={() => {
+												//사용자 아이디 클릭시 현재 출력되는 갤러리가 User 타입 갤러리면 이벤트 호출 방지
+												if (IsUser) return;
+												//fetchData가 실행이 되면 다시 User tpye갤러리로 변경되므로 다시 InUser값을 true로 변경
+												fetchData({ type: 'user', id: data.owner });
+												setIsUser(true);
+											}}
+										>
 											{data.owner}
 										</span>
 									</div>
