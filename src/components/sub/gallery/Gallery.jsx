@@ -8,6 +8,9 @@ const my_id = '199282981@N03';
 export default function Gallery() {
 	const [Pics, setPics] = useState([]);
 	const [Loader, setLoader] = useState(true);
+	//대체이미지가 추가되었는지 아닌지를 확인하는 state
+	//Fix(true): 대체이미지 추가됨, Fix(false): 대체이미지 적용안됨
+	const [Fix, setFix] = useState(false);
 	const refInput = useRef(null);
 	const refFrame = useRef(null);
 	const refBtnSet = useRef(null);
@@ -52,7 +55,7 @@ export default function Gallery() {
 				console.log('현재 로딩된 img갯수', count);
 				//interest gallery에서 특정 사용자 갤러리 호출시 이미 interest화면에서 2개의 이미지 이미 캐싱처리 되어 있기 떄문에
 				//전체 이미지 갯수에서 -2를 빼줘야지 무한로딩 오류 해결
-				if (count === imgs.length - 2) {
+				if (count === (Fix ? imgs.length / 2 - 1 : imgs.length - 2)) {
 					console.log('모든 이미지 소스 렌더링 완료!');
 
 					setLoader(false);
@@ -152,6 +155,9 @@ export default function Gallery() {
 											onError={(e) => {
 												//만약 사용자가 프로필 이미지를 올리지 않았을때 엑박이 뜨므로
 												//onError이벤트를 연결해서 대체이미지 출력
+												//다음번 렌더링 타이임에 count값에 포함이 안됨
+												//따라서 대체이미지 추가 유무를 Fix라는 state에 담아서 구분
+												setFix(true);
 												e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif');
 											}}
 										/>
