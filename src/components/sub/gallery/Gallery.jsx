@@ -1,17 +1,14 @@
 import Layout from '../../common/layout/Layout';
 import './Gallery.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 
 //메서니 옵션 추가
-const masonryOptions = {
-	transitionDuration: 0,
-};
+
 const my_id = '199282981@N03';
 
 export default function Gallery() {
 	const [Pics, setPics] = useState([]);
-
 	const fetchData = async (opt) => {
 		let url = '';
 		const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
@@ -40,17 +37,34 @@ export default function Gallery() {
 		const json = await data.json();
 		setPics(json.photos.photo);
 	};
+	const refInput = useRef(null);
 
 	useEffect(() => {
 		//type: 'interest' 인터레스트 방식 갤러리 호출
 		//type: 'user' 사용자 아이디 계정의 갤러리 호출
-		//fetchData({ type: 'user', id: my_id });
+		fetchData({ type: 'user', id: my_id });
 		//fetchData({ type: 'interest' });
-		fetchData({ type: 'search', tags: 'ocean' });
+		//fetchData({ type: 'search', tags: 'ocean' });
 	}, []);
 
 	return (
 		<Layout title={'Gallery'}>
+			<form
+				onSubmit={(e) => {
+					//submit이벤트의 기본 서버 전송기능을 막아줌
+					e.preventDefault();
+					//문자열.trim() : 문자열앞뒤로 빈칸을 제거해서 정리
+					if (refInput.current.value.trim() === '') {
+						return alert('검색어를 입력하세요.');
+					}
+
+					fetchData({ type: 'search', tags: refInput.current.value });
+					refInput.current.value = '';
+				}}
+			>
+				<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
+				<button>검색</button>
+			</form>
 			<button onClick={() => fetchData({ type: 'user', id: my_id })}>My Gallery</button>
 			<button onClick={() => fetchData({ type: 'interest' })}>Interest Gallery</button>
 			<div className='picFrame'>
