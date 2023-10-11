@@ -18,7 +18,7 @@ export default function Department() {
 	}, []);
 
 	return (
-		<Layout title={'Department'}>
+		<Layout title={'BRANIN'}>
 			<div className='memberBox'>
 				{Department.map((member, idx) => {
 					return (
@@ -26,7 +26,9 @@ export default function Department() {
 							<div className='pic'>
 								<img src={`${path}/img/${member.pic}`} alt={member.name} />
 							</div>
+
 							<h2>{member.name}</h2>
+
 							<p>{member.position}</p>
 						</article>
 					);

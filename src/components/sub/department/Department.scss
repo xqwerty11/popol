@@ -1,36 +1,6 @@
-.Department {
+.BRANIN {
 	figure {
 		background-color: lightblue;
-	}
-
-	.historyBox {
-		margin: 100px 0px;
-		article {
-			width: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			padding: 50px 0px;
-			justify-content: space-between;
-			position: relative;
-
-			.line {
-				position: absolute;
-				top: 0;
-				left: 35%;
-				width: 1px;
-				height: 1px;
-				background: #555;
-			}
-
-			h2 {
-				width: 30%;
-				text-align: right;
-			}
-			ul {
-				width: 65%;
-				padding-left: 50px;
-			}
-		}
 	}
 
 	.memberBox {
@@ -42,20 +12,56 @@
 		article {
 			width: 30%;
 			margin-bottom: 100px;
+			&:hover {
+				p {
+					color: rgb(138, 167, 188);
+				}
+				h2 {
+					color: rgb(44, 166, 252);
+					transition: 0.5s;
+					&::before {
+						width: 60px;
+					}
+				}
+			}
 
 			.pic {
 				width: 100%;
 				height: 30vw;
 
 				img {
+					border-radius: 50%;
 					width: 100%;
-					height: 100%;
+					height: 75%;
 					object-fit: cover;
+					transition: 0.5s;
+
+					&:hover {
+						transform: scale(105%);
+					}
 				}
 			}
 
 			h2 {
-				margin-bottom: 10px;
+				margin-top: -90px;
+				text-align: center;
+				position: relative;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					transform: translate(-50%, 0%);
+					display: block;
+					height: 2px;
+					width: 0%;
+					background: #555;
+					transition: 0.5s;
+				}
+			}
+			p {
+				text-align: center;
 			}
 		}
 	}
