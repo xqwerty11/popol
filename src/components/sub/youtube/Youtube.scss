@@ -20,9 +20,21 @@
 			justify-content: space-between;
 			margin-bottom: 50px;
 			text-align: right;
+			transform: scale(1);
+			opacity: 0.6;
+			transition: 0.5s;
+			&:hover {
+				transform: scale(1.03);
+				opacity: 1;
+			}
+
 			&:nth-of-type(even) {
 				flex-direction: row-reverse;
 				text-align: left;
+
+				.Youtubebox {
+					width: 43%;
+				}
 			}
 
 			.Youtubebox {
@@ -48,11 +60,13 @@
 				width: 55%;
 				height: 50%;
 				position: relative;
+				overflow: hidden;
 
 				img {
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
+					transform: scale(1.4);
 				}
 			}
 		}

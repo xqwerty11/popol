@@ -40,6 +40,39 @@ export default function Department() {
 					);
 				})}
 			</div>
+
+			<section className='conBox'>
+				<div className='subBox'>
+					<div></div>
+
+					<h2>Lorem, ipsum dolor.</h2>
+
+					<p>
+						Lorem ipsum dolor sit amet consectetur elit.
+						<br /> Alias, id dolor laboriosam.
+					</p>
+
+					<span>2023-10-11</span>
+				</div>
+				<div className='subBox'>
+					<div></div>
+					<h2>Lorem, ipsum dolor.</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur elit.
+						<br /> Alias, id dolor laboriosam.
+					</p>
+					<span>2023-10-11</span>
+				</div>
+				<div className='subBox'>
+					<div></div>
+					<h2>Lorem, ipsum dolor.</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur elit.
+						<br /> Alias, id dolor laboriosam.
+					</p>
+					<span>2023-10-11</span>
+				</div>
+			</section>
 		</Layout>
 	);
 }
