@@ -106,7 +106,6 @@ export default function Gallery() {
 	};
 
 	//profile 아이디 클릭시 실행할 함수
-
 	const handleClickProfile = (e) => {
 		if (IsUser) return;
 

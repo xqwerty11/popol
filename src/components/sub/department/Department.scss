@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&family=Roboto:wght@100&display=swap');
 .BRANIN {
+	text-align: center;
+	.content {
+		h1 {
+			font: bold 150px/1 'Nanum Myeongjo';
+			color: black;
+		}
+	}
 	figure {
 		background-color: lightblue;
 	}
@@ -9,15 +17,20 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 
+		.lorem {
+			width: 100%;
+			margin-bottom: 50px;
+			color: #444444;
+		}
+
 		article {
 			width: 30%;
-			margin-bottom: 100px;
+			margin-bottom: 50px;
 			&:hover {
 				p {
-					color: rgb(138, 167, 188);
+					color: rgb(129, 129, 129);
 				}
 				h2 {
-					color: rgb(44, 166, 252);
 					transition: 0.5s;
 					&::before {
 						width: 60px;
@@ -44,7 +57,6 @@
 
 			h2 {
 				margin-top: -90px;
-				text-align: center;
 				position: relative;
 
 				&::before {
@@ -59,9 +71,6 @@
 					background: #555;
 					transition: 0.5s;
 				}
-			}
-			p {
-				text-align: center;
 			}
 		}
 	}
