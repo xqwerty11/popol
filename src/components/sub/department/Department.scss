@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&family=Roboto:wght@100&display=swap');
+
 .BRANIN {
 	text-align: center;
 	.content {
 		h1 {
-			font: bold 150px/1 'Nanum Myeongjo';
+			font: 150px/1 'Nanum Myeongjo';
 			color: black;
 		}
 	}
@@ -48,6 +49,7 @@
 					height: 75%;
 					object-fit: cover;
 					transition: 0.5s;
+					position: relative;
 
 					&:hover {
 						transform: scale(105%);

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&family=Roboto:wght@100&display=swap');
+.PLAYLIST {
+	width: 100%;
+	.content {
+		h1 {
+			text-align: center;
+			color: rgb(0, 0, 0);
+			font: 150px/1.4 'Nanum Myeongjo';
+		}
+
+		.lorem {
+			text-align: center;
+		}
+	}
+
+	.Youyubebox {
+		width: 50%;
+		display: block;
+		position: relative;
+		top: 50%;
+		left: 70%;
+		transform: translate(-30%, 100%);
+		margin-top: -150px;
+
+		h2 {
+			margin-left: 30px;
+			position: relative;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 200%;
+				left: 50%;
+				transform: translate(-39%, -100%);
+				display: block;
+				height: 2px;
+				width: 600px;
+				background: #555;
+			}
+		}
+		p {
+			margin-top: 60px;
+			margin-left: 30px;
+			margin-bottom: 30px;
+		}
+		span {
+			margin-left: 30px;
+		}
+	}
+	.pic {
+		width: 50%;
+		position: relative;
+		transform: translate(-20%);
+	}
+}

@@ -22,7 +22,7 @@ export default function Youtube() {
 		const api_key = process.env.REACT_APP_YOUTUBE_API;
 		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 		const pid = 'PLxnkDxSlsKAFL-bto9b2pduWdqoYQazhW';
-		const num = 10;
+		const num = 5;
 		const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 		fetch(resultURL)
 			.then((data) => data.json())
@@ -36,16 +36,30 @@ export default function Youtube() {
 	}, []);
 	return (
 		<>
-			<Layout title={'Youtube'}>
+			<Layout title={'PLAYLIST'}>
+				<div className='lorem'>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet enim nisi dolorem
+						praesentium tempora illo, consequuntur inventore tenetur, a saepe quo sapiente vitae
+						fuga ipsa veniam cumque, iste sit quaerat.
+					</p>
+				</div>
 				{Youtube.map((data, idx) => {
 					let tit = data.snippet.title;
 					let desc = data.snippet.description;
 					let date = data.snippet.publishedAt;
 					return (
 						<article key={idx}>
-							<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
-							<p>{desc.length > 120 ? desc.substr(0, 120) + '...' : desc}</p>
-							<span>{date.split('T')[0].split('-').join('.')}</span>
+							<div className='Youyubebox'>
+								{/* 제목 */}
+								<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
+								{/* 내용 */}
+								<p>{desc.length > 120 ? desc.substr(0, 120) + '...' : desc}</p>
+								{/* 날짜 */}
+								<span>{date.split('T')[0].split('-').join('.')}</span>
+							</div>
+
+							{/* 썸네일 */}
 							<div
 								className='pic'
 								onClick={() => {
