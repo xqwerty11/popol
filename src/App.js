@@ -11,14 +11,11 @@ import Contact from './components/sub/contact/Contact';
 function App() {
 	return (
 		<>
-			{/* Switch안쪽에서 중첩되는 조건 라우트의 컴포넌트가 있을때 위쪽의 조건의 컴포넌트만 호출하고 나머지 무시 */}
 			<Switch>
 				<Route exact path='/'>
-					{/* 메인페이지 전용 헤더 */}
 					<Header isMain={true} />
 				</Route>
 				<Route path='/'>
-					{/* 서브페이지 전용 헤더 */}
 					<Header isMain={false} />
 				</Route>
 			</Switch>
