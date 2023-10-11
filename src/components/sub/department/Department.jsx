@@ -8,10 +8,12 @@ export default function Department() {
 
 	useEffect(() => {
 		fetch(`${path}/DB/department.json`)
-			.then((data) => data.json())
+			.then((data) => data.json()) //fetch문에 대한 응답 성공시
+			.catch((err) => console.log(err)) // fetch문에 대한 응답 실패시
 			.then((json) => {
-				setDepartment(json.members);
-			});
+				setDepartment(json.members); //json데이터 변환에 대한 응답 성고시
+			})
+			.catch((err) => console.log(err)); // json데이터 변환에 대한 응답 실패시
 	}, []);
 
 	return (
@@ -49,6 +51,7 @@ export default function Department() {
 	-- hook (JSX를 리턴하는것이 아닌 각 컴포넌트마다 자주쓰는 기능의 함수나 특정 값을 리턴하는 기능파일)
 
 	2.useState,useEffect,useRef (리액트에서 제일 많이쓰는 기본 hook)
+	
 	- useState: 화면의 렌더링을 담당하는 중요한 정보를 담아주고 변경해주는 기능의 훅 (state가 변경되면 컴포넌트는 재호출되면서 화면 재렌더링)
 
 	- useEffect: 컴포넌트의 생성, 변경, 소멸시마다 (컴포넌트의 생명주기마다) 특정 구문을 호출할 수 있는 hook
@@ -77,14 +80,21 @@ export default function Department() {
 
 		return JSX
 	}
-
+	--------------------------------------------------------------------------------------
 	fetch: ES6에서 기본문법으로 포함된 동기적으로 외부 데이터를 가져오는 내장함수 
 
 	fetch는 promise반환
 	promise가 반환되야지 .then구문 호출가능
 	.then구문을 호출해야지만 동기적으로 다음코드 실행가능
 
+	promise : 데이터의 상태값을 추적할 수 있는 객체
+	promise의 3가지 상태
+	pending: 요청을 보내고 응답을 받기까지의 대기상태
+	fulfilled: pending이 끝나고 요청에 대한 응답을 성공적으로 받은상태
+	rejected: pending이 끝나고 요청에 대한 응답을 받긴 하지만 에러를 받환받은 상태를 rejected
+
 	JSON (Javascript Object notation) 자바스크립트 객체 표현식
 	- 자바스크립트의 객체를 문자열형태로 관리하는 데이터 형식
 	- 문자형식으로 되어있는 JSON는 다시 객체형식으로 변환(parsing)
+	--------------------------------------------------------------------------------------
 */
