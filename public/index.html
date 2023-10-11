@@ -21,7 +21,6 @@
   0. 프론트에서는 크게 자바스크립트 + Web API 같이 맞물리면서 작업이 됨 
   - Web API 하는일 (DOM,Ajax,Timeout)
 
-
   1. SPA (Single Page Application) : 하나의 HTML파일안쪽에 자바스크립로 생성된 동적인 돔이 실시간으로 변경되는 방식
   - 프론트에서 SPA방식 선호되는 이유 :
   - 예전에는 자주바뀌지 않는 정적인 컨텐츠가 많았기 때문에 자바스크립트로 DOM의 구조를 변경할 일이 많지 않았음
@@ -34,7 +33,13 @@
   - 기본 컴포넌트가 렌더링 되면 useEffect구문이 실행되면서 외부 data fetching 시작됨
   - 외부 데이터가 fetching완료되면 해당 데이터를 토대로 동적인 데이터를 렌더링하기 시작
   - useEffect안쪽에서 실행해야 되는 구문은 보통은 브라우저기능 (Web api)의 기능을 빌려야 되는 기능들
-ㅇ
+
+  2-1 React 동작 방식을 봤을때 기본 리액트 SPA방식의 단점 (CSR:Client Side Rendering)
+  - 초기 로딩속도가 느림
+  - 처음에 서버에서 가지고오는 파일이 빈 HTML파일이기 때문에 컴색봇이 해당 페이지의 데이터를 못 읽어서 검색엔진 최적화에 취약 (SEO) Serch Engine Optimeiation 에 안좋음
+  
+  위의 문제점을 보완해주는게 Next.js라는 프레임웍
+
   3. Route 개념
   - URL값에 따라서 url경로에 매칭이 되는 데이터의 경로를 찾는 역할
 
