@@ -37,6 +37,9 @@
 						width: 60px;
 					}
 				}
+				img {
+					transform: scale(105%);
+				}
 			}
 
 			.pic {
@@ -50,9 +53,11 @@
 					object-fit: cover;
 					transition: 0.5s;
 					position: relative;
+					filter: grayscale(1);
 
 					&:hover {
 						transform: scale(105%);
+						filter: grayscale(0);
 					}
 				}
 			}

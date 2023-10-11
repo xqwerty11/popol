@@ -89,6 +89,7 @@ export default function Department() {
 
 	promise : 데이터의 상태값을 추적할 수 있는 객체
 	promise의 3가지 상태
+
 	pending: 요청을 보내고 응답을 받기까지의 대기상태
 	fulfilled: pending이 끝나고 요청에 대한 응답을 성공적으로 받은상태
 	rejected: pending이 끝나고 요청에 대한 응답을 받긴 하지만 에러를 받환받은 상태를 rejected

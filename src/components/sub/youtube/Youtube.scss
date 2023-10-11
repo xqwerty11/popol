@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&family=Roboto:wght@100&display=swap');
 .PLAYLIST {
 	width: 100%;
+
 	.content {
 		h1 {
 			text-align: center;
@@ -10,45 +11,50 @@
 
 		.lorem {
 			text-align: center;
+			margin-bottom: 60px;
 		}
-	}
 
-	.Youyubebox {
-		width: 50%;
-		display: block;
-		position: relative;
-		top: 50%;
-		left: 70%;
-		transform: translate(-30%, 100%);
-		margin-top: -150px;
+		article {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 50px;
+			text-align: right;
+			&:nth-of-type(even) {
+				flex-direction: row-reverse;
+				text-align: left;
+			}
 
-		h2 {
-			margin-left: 30px;
-			position: relative;
-			&::before {
-				content: '';
-				position: absolute;
-				top: 200%;
-				left: 50%;
-				transform: translate(-39%, -100%);
-				display: block;
-				height: 2px;
-				width: 600px;
-				background: #555;
+			.Youtubebox {
+				width: 40%;
+
+				h2 {
+					margin-left: 30px;
+					position: relative;
+					padding-bottom: 20px;
+					margin-bottom: 20px;
+					border-bottom: 1px solid black;
+				}
+				p {
+					margin-left: 30px;
+					margin-bottom: 30px;
+				}
+				span {
+					margin-left: 30px;
+				}
+			}
+
+			.pic {
+				width: 55%;
+				height: 50%;
+				position: relative;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
 			}
 		}
-		p {
-			margin-top: 60px;
-			margin-left: 30px;
-			margin-bottom: 30px;
-		}
-		span {
-			margin-left: 30px;
-		}
-	}
-	.pic {
-		width: 50%;
-		position: relative;
-		transform: translate(-20%);
 	}
 }

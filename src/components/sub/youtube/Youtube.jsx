@@ -13,7 +13,7 @@ export default function Youtube() {
 		const api_key = process.env.REACT_APP_YOUTUBE_API;
 		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 		const pid = 'PLxnkDxSlsKAFL-bto9b2pduWdqoYQazhW';
-		const num = 5;
+		const num = 10;
 		const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 
 		const data = await fetch(resultURL);
@@ -35,13 +35,14 @@ export default function Youtube() {
 						fuga ipsa veniam cumque, iste sit quaerat.
 					</p>
 				</div>
+
 				{Youtube.map((data, idx) => {
 					let tit = data.snippet.title;
 					let desc = data.snippet.description;
 					let date = data.snippet.publishedAt;
 					return (
 						<article key={idx}>
-							<div className='Youyubebox'>
+							<div className='Youtubebox'>
 								{/* 제목 */}
 								<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
 								{/* 내용 */}
@@ -51,6 +52,7 @@ export default function Youtube() {
 							</div>
 
 							{/* 썸네일 */}
+
 							<div
 								className='pic'
 								onClick={() => {
