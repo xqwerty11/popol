@@ -86,6 +86,10 @@ export default function Gallery() {
 							e.preventDefault();
 							//검색 갤러리 이벤트 발생시 IsUser값을 false로 변경
 							setIsUser(false);
+
+							//submit이벤트 발생시에도 기존 2개 버튼 on을 초기화해서 클릭가능하도록 변경
+							const btns = refBtnSet.current.querySelectorAll('button');
+							btns.forEach((btn) => btn.classList.remove('on'));
 							if (refInput.current.value.trim() === '') {
 								return alert('검색어를 입력하세요.');
 							}
