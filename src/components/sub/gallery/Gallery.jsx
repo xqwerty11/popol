@@ -120,20 +120,30 @@ export default function Gallery() {
 	return (
 		<>
 			<Layout title={'Gallery'}>
-				<div className='searchBox'>
-					<form onSubmit={handleSubmit}>
-						<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
-						<button>검색</button>
-					</form>
+				<div className='conBox'>
+					<h2>Lorem ipsum dolor sit amet.</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, rem illo mollitia
+						sequi ex.
+					</p>
 				</div>
 
-				<div className='btnSet' ref={refBtnSet}>
-					<button className='on' onClick={handleClickMyGallery}>
-						My Gallery
-					</button>
+				<section className='topBox'>
+					<div className='searchBox'>
+						<form onSubmit={handleSubmit}>
+							<input ref={refInput} type='text' />
+							<button>SEARCH</button>
+						</form>
+					</div>
 
-					<button onClick={handleClickInterest}>Interest Gallery</button>
-				</div>
+					<div className='btnSet' ref={refBtnSet}>
+						<button className='on' onClick={handleClickMyGallery}>
+							My Gallery
+						</button>
+
+						<button onClick={handleClickInterest}>Interest Gallery</button>
+					</div>
+				</section>
 
 				{Loader && (
 					<img
