@@ -28,10 +28,6 @@ export default function Department() {
 				</div>
 
 				<div className='subpageBox'>
-					<div>
-						<img src='img/img1.jpg' alt='' />
-					</div>
-
 					<h2>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim perspiciatis ipsa nemo
 						amet cumque fuga deserunt, tempora, ratione reiciendis mollitia voluptas vel soluta
