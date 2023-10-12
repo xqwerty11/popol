@@ -28,7 +28,9 @@ export default function Department() {
 				</div>
 
 				<div className='subpageBox'>
-					<div></div>
+					<div>
+						<img src='img/img1.jpg' alt='' />
+					</div>
 
 					<h2>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim perspiciatis ipsa nemo
@@ -36,8 +38,11 @@ export default function Department() {
 						eveniet.
 					</h2>
 					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis quibusdam provident
-						beatae quia facilis sequi ex.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quas, accusamus eos maxime,
+						quis, laudantium assumenda recusandae voluptatem tenetur laborum impedit inventore quos
+						cumque? Autem incidunt rem iure ut quas consequuntur ratione, saepe dignissimos eius
+						voluptates aspernatur dolores corrupti ipsa aliquid voluptas accusamus fugit eum libero
+						minima a iste deserunt.
 					</p>
 				</div>
 
