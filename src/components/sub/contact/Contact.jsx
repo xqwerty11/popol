@@ -12,8 +12,14 @@ export default function Contact() {
 	const [Index, setIndex] = useState(0);
 	const [IsMap, setIsMap] = useState(true);
 
+	//kakao API를 cdn방식으로 불러오고 있기 때문에 리액트 컴포넌트가 실행되면 window객체에서 직접 비구조화 할당으로 kakao객체를 뽑아옴
 	const { kakao } = window;
 	//첫번째 지도를 출력하기 위한 객체정보
+
+	//지도정보데이터를 객체형식으로 구조화한 다음에 데이터 기반으로 자동지도 화면이 생성되도록 만들었다
+	//데이터정보가 많아질때를 대비해서 유지보수에 최적화되도록 코드 개선
+	//해당 정보값은 자주 바뀌는값이 아니기 때문에 굳이 state에 담아서 불필요한 재랜더링을 막기위해 useRef에 담아놨다
+
 	const info = useRef([
 		{
 			title: '삼성역 코엑스',
@@ -48,6 +54,7 @@ export default function Contact() {
 		),
 	});
 
+	//지도위치를 중심으로 이동시키는 핸들러 함수 제작
 	const setCenter = () => {
 		// 지도 중심을 이동 시킵니다
 		instance.current.setCenter(info.current[Index].latlng);
@@ -131,6 +138,7 @@ export default function Contact() {
 				}
 			);
 	};
+
 	return (
 		<Layout title={'Contact'}>
 			{/* <button onClick={() => setTraffic(true)}>주변 교통정보 보기</button>
@@ -171,6 +179,7 @@ export default function Contact() {
 					<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
 				</div>
 
+				{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
 				<ul>
 					{info.current.map((el, idx) => (
 						<li

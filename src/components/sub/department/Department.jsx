@@ -54,6 +54,7 @@ export default function Department() {
 
 					<span>2023-10-11</span>
 				</div>
+
 				<div className='subBox'>
 					<div></div>
 					<h2>Lorem, ipsum dolor.</h2>
@@ -63,6 +64,7 @@ export default function Department() {
 					</p>
 					<span>2023-10-11</span>
 				</div>
+
 				<div className='subBox'>
 					<div></div>
 					<h2>Lorem, ipsum dolor.</h2>

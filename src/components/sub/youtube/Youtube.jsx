@@ -52,7 +52,6 @@ export default function Youtube() {
 							</div>
 
 							{/* 썸네일 */}
-
 							<div
 								className='pic'
 								onClick={() => {
