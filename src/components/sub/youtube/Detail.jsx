@@ -22,14 +22,19 @@ export default function Detail() {
 	}, []);
 
 	return (
-		<Layout title={'Detail'}>
-			<h2>{Data?.title}</h2>
-			<p>{Data?.description}</p>
-			<div className='vidBox'>
-				<iframe
-					src={`https://www.youtube.com/embed/${Data?.resourceId.videoId}`}
-					title='youtube'
-				></iframe>
+		<Layout title={'PLAY'}>
+			<div id='Box'>
+				<div className='vidBox'>
+					<iframe
+						src={`https://www.youtube.com/embed/${Data?.resourceId.videoId}`}
+						title='youtube'
+					></iframe>
+				</div>
+				<div className='txtBox'>
+					<h2>{Data?.title}</h2>
+					<p>{Data?.description}</p>
+					<span>{Data?.publishedAt.split('T')[0].split('-').join('.')}</span>
+				</div>
 			</div>
 		</Layout>
 	);
