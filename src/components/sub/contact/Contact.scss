@@ -1,5 +1,6 @@
 .Contact {
 	.content {
+		width: 100%;
 		h1 {
 			text-align: center;
 			color: rgb(0, 0, 0);
@@ -10,11 +11,109 @@
 		background: orange;
 	}
 
+	.conBox {
+		width: 70vw;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0px auto;
+		position: relative;
+		background: linear-gradient(50deg, rgb(231, 231, 231), rgb(184, 184, 184));
+		margin-bottom: 20px;
+
+		h2 {
+			width: 30%;
+			color: #2d2d2d;
+			margin-top: 10px;
+			margin-bottom: 5px;
+			font: 40px/1 'arial';
+			padding: 10px;
+		}
+		p {
+			width: 100%;
+			margin-bottom: 30px;
+			font: 20px/1 'arial';
+			color: #686868;
+			padding: 10px;
+			margin-top: -20px;
+		}
+		span {
+			width: 70%;
+			margin-bottom: 50px;
+			font-size: 12px;
+			font-family: 'arial';
+			padding: 10px;
+		}
+	}
+
+	.sun {
+		width: 70vw;
+		border-bottom: 1px solid black;
+		margin: 0 auto;
+	}
+
+	#Box {
+		width: 70%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 0 auto;
+
+		.butBox {
+			width: 60%;
+			margin: 0 auto;
+
+			margin-bottom: 30px;
+			display: flex;
+			flex-wrap: wrap;
+
+			button {
+				width: 20%;
+				display: block;
+				height: 40px;
+				background: #444;
+				border: 1px solid #666;
+				font: 1rem/40px 'arial';
+				color: #ffffff;
+				text-align: center;
+				margin-top: 30px;
+				margin-right: 10px;
+			}
+		}
+
+		ul {
+			width: 40%;
+			margin-top: 30px;
+			margin-bottom: 40px;
+			display: flex;
+			gap: 20px;
+			justify-content: right;
+
+			li {
+				width: 150px;
+				height: 30px;
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: #444;
+				border: 1px solid #666;
+				font: 1rem/40px 'arial';
+				color: #ffffff;
+				text-align: center;
+			}
+
+			li.on {
+				color: rgb(178, 178, 178);
+			}
+		}
+	}
+
 	.container {
 		width: 100%;
 		height: 60vh;
 		background: #111;
 		position: relative;
+		margin-bottom: 50px;
 	}
 	.map,
 	.view {
@@ -33,24 +132,12 @@
 		}
 	}
 
-	ul {
-		display: flex;
-		gap: 20px;
-
-		li {
-			cursor: pointer;
-		}
-
-		li.on {
-			color: hotpink;
-		}
-	}
-
 	#mailbox {
-		width: 100%;
-		margin-top: 100px;
-		border-top: 1px solid #555;
-		border-bottom: 1px solid #555;
+		width: 70vw;
+
+		border-top: 1px solid rgb(137, 137, 137);
+		border-bottom: 1px solid rgb(137, 137, 137);
+		margin: 0 auto;
 		.upper {
 			width: 50%;
 			display: flex;
@@ -79,6 +166,7 @@
 			margin-bottom: 10px;
 			display: flex;
 			flex-wrap: wrap;
+			margin-bottom: 20px;
 			label {
 				font: bold 1rem/1 'arial';
 				color: #555;
@@ -87,10 +175,10 @@
 				top: -10px;
 			}
 			textarea {
-				width: 70%;
+				width: 100%;
 				border: none;
 				border-bottom: 1px solid #555;
-				margin-right: 50px;
+				margin-right: 20px;
 				outline: none;
 				background: none;
 				resize: none;
@@ -99,21 +187,28 @@
 
 		.btnSet {
 			width: 100%;
-			padding-right: 20px;
+
 			display: flex;
 			gap: 10px;
-			display: flex;
 			justify-content: space-between;
 			margin-bottom: 20px;
+
 			input {
+				width: 100px;
 				display: block;
 				height: 40px;
-				background: transparent;
+				background: #444;
 				border: 1px solid #666;
 				font: 1rem/40px 'arial';
-				color: #555;
+				color: #ffffff;
 				text-align: center;
 			}
+		}
+
+		.texBox {
+			margin-top: 20px;
+			text-align: center;
+			margin-bottom: 20px;
 		}
 	}
 }

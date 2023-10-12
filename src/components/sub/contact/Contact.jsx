@@ -152,40 +152,61 @@ export default function Contact() {
 			{/* <button onClick={() => setTraffic(true)}>주변 교통정보 보기</button>
 			<button onClick={() => setTraffic(false)}>주변 교통정보 끄기</button> */}
 
+			<div className='conBox'>
+				<h2>Lorem, ipsum.</h2>
+				<p>lorem</p>
+				<span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quasi reprehenderit.
+					Sapiente non mollitia aut nisi, sit ducimus. In placeat, eos porro omnis corrupti quam
+					molestias odio consequuntur doloremque, natus quod quis accusamus dicta dignissimos quae
+					ullam, beatae sit. Maiores vero nulla quibusdam placeat dicta, eum enim consequatur
+					soluta, id velit praesentium illo odit rem suscipit veritatis laborum sunt? Eos dolor
+					omnis id rem et provident reiciendis ab voluptas aliquid maxime similique libero magnam
+					quo veniam ipsum ex, inventore dignissimos harum quam asperiores eligendi. Neque optio
+					aspernatur delectus vero error eius consectetur nam voluptas ad nihil itaque, veniam quis
+					aliquam.
+				</span>
+			</div>
+
+			<div className='sun'></div>
+
 			<div id='mapBox'>
-				<button onClick={() => setTraffic(!Traffic)}>
-					{Traffic ? '교통정보 끄기' : '교통정보 키기'}
-				</button>
+				<article id='Box'>
+					<section className='butBox'>
+						<button onClick={() => setTraffic(!Traffic)}>
+							{Traffic ? '교통정보 끄기' : '교통정보 키기'}
+						</button>
 
-				<button onClick={setCenter}>지도 위치 초기화</button>
+						<button onClick={setCenter}>지도 위치 초기화</button>
 
-				<button onClick={() => setIsMap(!IsMap)}> {IsMap ? '로드뷰보기' : '지도보기'}</button>
+						<button onClick={() => setIsMap(!IsMap)}> {IsMap ? '로드뷰보기' : '지도보기'}</button>
+					</section>
+					{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
+					<ul>
+						{info.current.map((el, idx) => (
+							<li
+								className={Index === idx ? 'on' : ''}
+								key={idx}
+								onClick={() => {
+									setIndex(idx);
+									setIsMap(true);
+								}}
+							>
+								{el.title}
+							</li>
+						))}
+					</ul>
+				</article>
 
 				<div className='container'>
 					<div className={`view ${IsMap ? '' : 'on'}`} ref={view}></div>
 					<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
 				</div>
-
-				{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
-				<ul>
-					{info.current.map((el, idx) => (
-						<li
-							className={Index === idx ? 'on' : ''}
-							key={idx}
-							onClick={() => {
-								setIndex(idx);
-								setIsMap(true);
-							}}
-						>
-							{el.title}
-						</li>
-					))}
-				</ul>
 			</div>
 
 			<div id='mailbox'>
 				<form ref={form} onSubmit={sendEmail}>
-					<div>
+					<div className='texBox'>
 						<h2>SUBSCRIBE TO NEWSLETTER</h2>
 					</div>
 
