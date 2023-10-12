@@ -20,25 +20,45 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		margin-bottom: 40px;
+		margin-bottom: 80px;
 		position: relative;
 		padding: 10px;
-
 		&::before {
 			content: '';
 			position: absolute;
 			top: 110%;
 			left: 10px;
-			transform: translate(0%, 50%);
+			transform: translate(0%, -50%);
 			width: calc(100% - 20px);
 			height: 10px;
 			background: #a7a7a7;
 		}
-		h2 {
-			width: 80%;
-		}
-		p {
+
+		.txtBox {
+			background: #ffffff;
 			width: 50%;
+			height: 500px;
+			h2 {
+				margin-top: 60px;
+				width: 100%;
+				text-align: center;
+				margin-bottom: 40px;
+			}
+			p {
+				width: 100%;
+				text-align: center;
+			}
+		}
+
+		.imgBox {
+			width: 50%;
+			height: 20%;
+			position: relative;
+			img {
+				width: 100%;
+				height: 500px;
+				object-fit: cover;
+			}
 		}
 	}
 
@@ -69,6 +89,7 @@
 			}
 		}
 	}
+
 	.picFrame {
 		width: 100%;
 

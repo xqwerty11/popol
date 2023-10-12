@@ -103,11 +103,23 @@ export default function Gallery() {
 		<>
 			<Layout title={'Gallery'}>
 				<div className='conBox'>
-					<h2>Lorem ipsum dolor sit amet.</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, rem illo mollitia
-						sequi ex.
-					</p>
+					<article className='txtBox'>
+						<h2>
+							Welcome to <br />
+							The Art And History
+							<br /> Museum Ozeum
+						</h2>
+						<p>
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br /> Optio ullam velit
+							minima? Eligendi officia ipsumrem, <br /> voluptatum cum tempore id eum cupiditate
+							facilis sed. <br /> repellendus illo natus aperiam
+						</p>
+						<p></p>
+					</article>
+
+					<article className='imgBox'>
+						<img src='img/img1.jpg' alt='' />
+					</article>
 				</div>
 
 				<section className='topBox'>

@@ -152,27 +152,6 @@ export default function Contact() {
 			{/* <button onClick={() => setTraffic(true)}>주변 교통정보 보기</button>
 			<button onClick={() => setTraffic(false)}>주변 교통정보 끄기</button> */}
 
-			<div id='mailbox'>
-				<form ref={form} onSubmit={sendEmail}>
-					<div className='upper'>
-						<label>Name</label>
-						<input type='text' name='user_name' className='nameEl' />
-						<label>Email</label>
-						<input type='email' name='user_email' className='emailEl' />
-					</div>
-
-					<div className='lower'>
-						<label>Message</label>
-						<textarea name='message' className='msgEl' />
-					</div>
-
-					<div className='btnSet'>
-						<input type='reset' value='Cancel' />
-						<input type='submit' value='Send' />
-					</div>
-				</form>
-			</div>
-
 			<div id='mapBox'>
 				<button onClick={() => setTraffic(!Traffic)}>
 					{Traffic ? '교통정보 끄기' : '교통정보 키기'}
@@ -202,6 +181,32 @@ export default function Contact() {
 						</li>
 					))}
 				</ul>
+			</div>
+
+			<div id='mailbox'>
+				<form ref={form} onSubmit={sendEmail}>
+					<div>
+						<h2>SUBSCRIBE TO NEWSLETTER</h2>
+					</div>
+
+					<div className='upper'>
+						<label>Name</label>
+						<input type='text' name='user_name' className='nameEl' />
+
+						<label>Email</label>
+						<input type='email' name='user_email' className='emailEl' />
+					</div>
+
+					<div className='lower'>
+						<label>Message</label>
+						<textarea name='message' className='msgEl' />
+					</div>
+
+					<div className='btnSet'>
+						<input type='reset' value='Cancel' />
+						<input type='submit' value='Send' />
+					</div>
+				</form>
 			</div>
 		</Layout>
 	);

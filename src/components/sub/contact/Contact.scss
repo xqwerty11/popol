@@ -1,79 +1,13 @@
 .Contact {
+	.content {
+		h1 {
+			text-align: center;
+			color: rgb(0, 0, 0);
+			font: 150px/1.4 'Nanum Myeongjo';
+		}
+	}
 	figure {
 		background: orange;
-	}
-	#mailbox {
-		width: 50%;
-		margin-bottom: 100px;
-
-		.upper {
-			width: 100%;
-			display: flex;
-			margin-bottom: 50px;
-
-			label {
-				font: bold 1rem/1 'arial';
-				color: #555;
-				margin-right: 20px;
-				position: relative;
-				top: 10px;
-			}
-			input[type='text'],
-			input[type='email'] {
-				border: none;
-				padding: 10px 20px;
-				border-bottom: 1px solid #555;
-				margin-right: 50px;
-				outline: none;
-				transition: 0.5s;
-
-				&:focus {
-					background: rgb(222, 245, 252);
-				}
-			}
-		}
-
-		.lower {
-			width: 100%;
-			margin-bottom: 10px;
-			label {
-				display: block;
-				margin-bottom: 5px;
-				font: bold 1rem/1 'arial';
-				color: #555;
-			}
-			textarea {
-				width: 100%;
-				padding: 10px;
-				border: none;
-				border-bottom: 1px solid #555;
-				margin-right: 50px;
-				resize: none;
-				outline: none;
-				transition: 0.5s;
-				&:focus {
-					background: lightcyan;
-				}
-			}
-		}
-
-		.btnSet {
-			width: 100%;
-			padding-right: 20px;
-			display: flex;
-			justify-content: space-between;
-			gap: 50px;
-
-			input {
-				display: block;
-				height: 40px;
-				background: transparent;
-				border: 1px solid #666;
-				font: 1rem/40px 'arial';
-				color: #555;
-				text-align: center;
-			}
-		}
 	}
 
 	.container {
@@ -109,6 +43,77 @@
 
 		li.on {
 			color: hotpink;
+		}
+	}
+
+	#mailbox {
+		width: 100%;
+		margin-top: 100px;
+		border-top: 1px solid #555;
+		border-bottom: 1px solid #555;
+		.upper {
+			width: 50%;
+			display: flex;
+			margin-bottom: 50px;
+
+			label {
+				font: bold 1rem/1 'arial';
+				color: #555;
+				margin-right: 10px;
+				position: relative;
+				top: 10px;
+			}
+			input[type='text'],
+			input[type='email'] {
+				border: none;
+				padding: 10px 20px;
+				border-bottom: 1px solid #555;
+				margin-right: 50px;
+				outline: none;
+				background: none;
+			}
+		}
+
+		.lower {
+			width: 100%;
+			margin-bottom: 10px;
+			display: flex;
+			flex-wrap: wrap;
+			label {
+				font: bold 1rem/1 'arial';
+				color: #555;
+				margin-right: 10px;
+				position: relative;
+				top: -10px;
+			}
+			textarea {
+				width: 70%;
+				border: none;
+				border-bottom: 1px solid #555;
+				margin-right: 50px;
+				outline: none;
+				background: none;
+				resize: none;
+			}
+		}
+
+		.btnSet {
+			width: 100%;
+			padding-right: 20px;
+			display: flex;
+			gap: 10px;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+			input {
+				display: block;
+				height: 40px;
+				background: transparent;
+				border: 1px solid #666;
+				font: 1rem/40px 'arial';
+				color: #555;
+				text-align: center;
+			}
 		}
 	}
 }
