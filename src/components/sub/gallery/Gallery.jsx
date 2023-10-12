@@ -22,7 +22,7 @@ export default function Gallery() {
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
-		const num = 100;
+		const num = 50;
 
 		if (opt.type === 'interest') {
 			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
@@ -53,6 +53,7 @@ export default function Gallery() {
 
 		const btns = refBtnSet.current.querySelectorAll('button');
 		btns.forEach((btn) => btn.classList.remove('on'));
+
 		if (refInput.current.value.trim() === '') {
 			return alert('검색어를 입력하세요.');
 		}
@@ -68,6 +69,7 @@ export default function Gallery() {
 
 		const btns = refBtnSet.current.querySelectorAll('button');
 		btns.forEach((btn) => btn.classList.remove('on'));
+
 		e.target.classList.add('on');
 
 		fetchData({ type: 'user', id: my_id });
@@ -176,3 +178,13 @@ export default function Gallery() {
 		</>
 	);
 }
+
+/*
+	클릭한 버튼을 또 클릭했을때 같은 데이터를 불필요하게 또다시 fetching요청하지 않도록
+	클릭한 버튼에 on이 붙어있을때 함수 호출을 강제중지
+
+	현재 출력되는 갤러리 방식이 User type 갤러리일때 같은 사용자의 갤러리가 보이는 형태이므로
+	사용자 아이디를 클릭하게되면 같은 데이터 요청을 보내게됨
+	--- 사용자 타입의 갤러리를 호출할때마다 isUser state값을 true로 변경해서 
+	--- 이벤트가 발생할때마다 IsUser값이 true 사용자 아이디 클릭 이벤트 핸들러 제거
+*/
