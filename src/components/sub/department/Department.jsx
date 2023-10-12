@@ -26,6 +26,21 @@ export default function Department() {
 						incidunt atque quibusdam possimus quas omnis.
 					</p>
 				</div>
+
+				<div className='subpageBox'>
+					<div></div>
+
+					<h2>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim perspiciatis ipsa nemo
+						amet cumque fuga deserunt, tempora, ratione reiciendis mollitia voluptas vel soluta
+						eveniet.
+					</h2>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis quibusdam provident
+						beatae quia facilis sequi ex.
+					</p>
+				</div>
+
 				{Department.map((member, idx) => {
 					return (
 						<article key={idx}>
