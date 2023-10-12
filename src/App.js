@@ -7,8 +7,9 @@ import Youtube from './components/sub/youtube/Youtube';
 import Members from './components/sub/members/Members';
 import Gallery from './components/sub/gallery/Gallery';
 import Contact from './components/sub/contact/Contact';
+import Detail from './components/sub/youtube/Detail';
 
-function App() {
+export default function App() {
 	return (
 		<>
 			<Switch>
@@ -24,8 +25,7 @@ function App() {
 			<Route path='/youtube' component={Youtube} />
 			<Route path='/members' component={Members} />
 			<Route path='/contact' component={Contact} />
+			<Route path='/detail/:id' component={Detail} />
 		</>
 	);
 }
-
-export default App;
