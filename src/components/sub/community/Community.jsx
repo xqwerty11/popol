@@ -5,6 +5,8 @@ import './Community.scss';
 export default function Community() {
 	const refInput = useRef(null);
 	const refTextarea = useRef(null);
+	const refEditInput = useRef(null);
+	const refEdittextarea = useRef(null);
 	const [Posts, setPosts] = useState([]);
 
 	const resetForm = () => {
@@ -42,6 +44,33 @@ export default function Community() {
 		);
 	};
 
+	//해당 글을 출력모드로 변경시키는 함수
+	const disableUpdate = (editIndex) => {
+		setPosts(
+			Posts.map((post, idx) => {
+				if (editIndex === idx) {
+					post.enableUpdate = false;
+				}
+				return post;
+			})
+		);
+	};
+
+	//실제 글 수정하는 함수
+	const updatePost = (updateIndex) => {
+		//setPosts로 기존의 Post배열값을 덮어쓰기해서 변경
+		//리액트에서는 참조형 자료는 무조건 배열값을 Deep copy한뒤 변경
+		setPosts(
+			Posts.map((post, idx) => {
+				if (updateIndex === idx) {
+					post.title = refEditInput.current.value;
+					post.content = refEdittextarea.current.value;
+				}
+				return post;
+			})
+		);
+	};
+
 	return (
 		<Layout title={'Community'}>
 			<div className='inputBox'>
@@ -62,26 +91,25 @@ export default function Community() {
 						return (
 							<article key={idx}>
 								<div className='txt'>
-									<input
-										type='text'
-										value={post.title}
-										onChange={(e) => {
-											console.log(e.target.value);
-										}}
-									/>
+									<input type='text' defaultValue={post.title} ref={refEditInput} />
 									<br />
 									<textarea
 										//react에서 value속성을 적용하려면 무조건 onChange이벤트 연결 필수
 										//onChange이벤트 연결하지 않을때에는 value가닌 defaultValue속성 적용
-										value={post.content}
-										onChange={(e) => {
-											console.log(e.target.value);
-										}}
+										defaultValue={post.content}
+										ref={refEdittextarea}
 									></textarea>
 								</div>
 								<nav className='btnSet'>
-									<button>Cancel</button>
-									<button>Update</button>
+									<button onClick={() => disableUpdate(idx)}>Cancel</button>
+									<button
+										onClick={() => {
+											updatePost(idx);
+											disableUpdate(idx);
+										}}
+									>
+										Update
+									</button>
 								</nav>
 							</article>
 						);
