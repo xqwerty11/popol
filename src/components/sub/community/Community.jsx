@@ -23,6 +23,11 @@ export default function Community() {
 		resetForm();
 	};
 
+	const deletePost = (delIndex) => {
+		//기존 Posts배열에 반복 돌면서 인수로 전달된 삭제 순법값과 현재 반복되는 배열의 순법값이 같지 않은 것만 리턴
+		setPosts(Posts.filter((_, idx) => delIndex !== idx));
+	};
+
 	return (
 		<Layout title={'Community'}>
 			<div className='inputBox'>
@@ -45,7 +50,7 @@ export default function Community() {
 
 							<nav className='btnSet'>
 								<button>Edit</button>
-								<button>Delete</button>
+								<button onClick={() => deletePost(idx)}>Delete</button>
 							</nav>
 						</article>
 					);
