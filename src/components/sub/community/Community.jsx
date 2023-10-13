@@ -28,6 +28,20 @@ export default function Community() {
 		setPosts(Posts.filter((_, idx) => delIndex !== idx));
 	};
 
+	//해당 글을 수정모드로 변경시키는 함수
+	const enableUpdate = (editIndex) => {
+		setPosts(
+			//Posts 배열값을 반복돌면서 인수로 전달된 수정할 포스트의 순번값과 현재 반복도는 배열의 포스트 순번값이 일치하면
+			//해당 글을 수정처리해야되므로 해당 객체에 enableUpdate=true값을 추가
+			Posts.map((post, idx) => {
+				if (editIndex === idx) {
+					post.enableUpdate = true;
+				}
+				return post;
+			})
+		);
+	};
+
 	return (
 		<Layout title={'Community'}>
 			<div className='inputBox'>
@@ -51,7 +65,7 @@ export default function Community() {
 							</div>
 
 							<nav className='btnSet'>
-								<button>Edit</button>
+								<button onClick={() => enableUpdate(idx)}>Edit</button>
 								<button onClick={() => deletePost(idx)}>Delete</button>
 							</nav>
 						</article>
