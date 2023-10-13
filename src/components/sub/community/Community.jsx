@@ -86,6 +86,7 @@ export default function Community() {
 	useEffect(() => {
 		localStorage.setItem('post', JSON.stringify(Posts));
 	}, [Posts]);
+
 	return (
 		<Layout title={'Community'}>
 			<div className='conBox'>
@@ -105,7 +106,13 @@ export default function Community() {
 			<section className='bigBox'>
 				<div className='showBox'>
 					{Posts.map((post, idx) => {
-						// const [year, month, date] = post.data.split('T')[0].split('-');
+						const string = JSON.stringify(post.data);
+
+						const [year, month, date] = string.split('T')[0].split('"')[1].split('-');
+
+						let [hour, min, sec] = string.split('T')[1].split('.')[0].split(':');
+						hour = parseInt(hour) + 9;
+						hour >= 24 && (hour = hour - 24);
 						if (post.enableUpdate) {
 							//수정 모드 렌더링
 							return (
@@ -141,7 +148,10 @@ export default function Community() {
 									<div className='txt'>
 										<h2>{post.title}</h2>
 										<p>{post.content}</p>
-										{/* <p>{`${year}-${month}-${date}`}</p> */}
+										<div className='txtto'>
+											<span>{`글 작성일 : ${year}-${month}-${date}`}</span>
+											<span>{`글 작성시간 : ${hour}:${min}:${sec}`}</span>
+										</div>
 									</div>
 
 									<nav className='btnSet'>
