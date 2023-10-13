@@ -20,6 +20,7 @@ export default function Community() {
 
 		//기존 Posts 배열값을 Deep copy해서 가져온뒤, 그 뒤에 추가로 방금 입력한 객체를 추가로 방금 입력한 객체를 배열에 추가
 		setPosts([{ title: refInput.current.value, content: refTextarea.current.value }, ...Posts]);
+		resetForm();
 	};
 
 	return (
@@ -41,6 +42,11 @@ export default function Community() {
 						<article key={idx}>
 							<h2>{post.title}</h2>
 							<p>{post.content}</p>
+
+							<nav className='btnSet'>
+								<button>Edit</button>
+								<button>Delete</button>
+							</nav>
 						</article>
 					);
 				})}
