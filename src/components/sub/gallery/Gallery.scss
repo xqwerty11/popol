@@ -73,8 +73,17 @@
 		.btnSet {
 			width: 60%;
 			text-align: right;
+
+			button {
+				background: #4d4d4d;
+				width: 100px;
+				height: 20px;
+				border: none;
+				margin-left: 10px;
+				color: rgb(174, 174, 174);
+			}
 			.on {
-				color: #c79a9a;
+				color: #ffffff;
 			}
 		}
 		.searchBox {

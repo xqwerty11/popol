@@ -1,21 +1,49 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Community.scss';
 
 export default function Community() {
-	const refinput = useRef(null);
+	const refInput = useRef(null);
 	const refTextarea = useRef(null);
+	const [Posts, setPosts] = useState([]);
+
+	const resetForm = () => {
+		refInput.current.value = '';
+		refTextarea.current.value = '';
+	};
+
+	const createPost = () => {
+		if (!refInput.current.value.trim() || !refTextarea.current.value.trim()) {
+			resetForm();
+			return alert('제목과 본문을 모두 입력하세요');
+		}
+
+		//기존 Posts 배열값을 Deep copy해서 가져온뒤, 그 뒤에 추가로 방금 입력한 객체를 추가로 방금 입력한 객체를 배열에 추가
+		setPosts([{ title: refInput.current.value, content: refTextarea.current.value }, ...Posts]);
+	};
+
 	return (
 		<Layout title={'Community'}>
 			<div className='inputBox'>
-				<input ref={refinput} type='text' placeholder='제목을 입력하세요' />
+				<input ref={refInput} type='text' placeholder='제목을 입력하세요' />
 				<br />
 				<textarea ref={refTextarea} cols='30' rows='3' placeholder='본문을 입력하세요'></textarea>
 
 				<nav className='btnSet'>
-					<button>cancle</button>
-					<button>write</button>
+					<button onClick={resetForm}>cancle</button>
+					<button onClick={createPost}>write</button>
 				</nav>
+			</div>
+
+			<div className='showBox'>
+				{Posts.map((post, idx) => {
+					return (
+						<article key={idx}>
+							<h2>{post.title}</h2>
+							<p>{post.content}</p>
+						</article>
+					);
+				})}
 			</div>
 		</Layout>
 	);
