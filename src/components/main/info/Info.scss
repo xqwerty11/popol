@@ -19,6 +19,24 @@
 		article {
 			background: #333;
 			border: 1px solid aqua;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-size: 100px;
+
+			//grid-area:행의 시작위치, 열의 시작위치 , 행 병합 수 , 열 병합수
+			//grid-area의 순서값은 화면상의 박스 위치를 지정
+			//nth-of-type 화면위치에 어떤 컨텐츠를 집어넣을지 순서지정
+			&:nth-of-type(1) {
+				grid-area: 1/1 / span 1 / span 2;
+			}
+			&:nth-of-type(3) {
+				grid-area: 1/4 / span 3 / span 1;
+			}
+			&:nth-of-type(5) {
+				grid-area: 2/2 / span 2 / span 2;
+			}
 		}
 	}
 }
