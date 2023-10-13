@@ -5,6 +5,7 @@
 			border: 1px solid #aaa;
 			padding: 50px;
 			margin-bottom: 50px;
+			text-align: center;
 
 			input[type='text'],
 			textarea {
@@ -13,7 +14,7 @@
 				border: 1px solid #aaa;
 				resize: none;
 				margin-bottom: 10px;
-				background: #d5e3ee;
+				background: #d1d1d1;
 			}
 
 			.btnSet {
@@ -23,12 +24,14 @@
 					display: inline-block;
 					border: none;
 					background: #555;
-					margin-right: 20px;
 					color: #fff;
 					cursor: pointer;
+					margin-left: 31px;
+					margin-right: 31px;
 				}
 			}
 		}
+
 		.showBox {
 			width: 100%;
 			border: 1px solid #aaa;

@@ -1,13 +1,21 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Community.scss';
 
 export default function Community() {
+	//로컬데이터의 값을 parsing해서 반환하는 함수
+	const getLocalData = () => {
+		const data = localStorage.getItem('post');
+		if (data) return JSON.parse(data);
+		else return [];
+	};
 	const refInput = useRef(null);
 	const refTextarea = useRef(null);
 	const refEditInput = useRef(null);
 	const refEdittextarea = useRef(null);
-	const [Posts, setPosts] = useState([]);
+	//해당 컴포넌트가 처음 마운트시에는 로컬저장소에 값이 없기 때문에 빈배열 리턴
+	//저장소에 값이 있으면 해당값을 parsing된 데이턱 있는 배열값을 리턴
+	const [Posts, setPosts] = useState(getLocalData());
 	const [Allowd, setAllowd] = useState(true);
 
 	const resetForm = () => {
@@ -79,6 +87,10 @@ export default function Community() {
 		);
 	};
 
+	useEffect(() => {
+		localStorage.setItem('post', JSON.stringify(Posts));
+	}, [Posts]);
+
 	return (
 		<Layout title={'Community'}>
 			<div className='inputBox'>
@@ -123,6 +135,7 @@ export default function Community() {
 						);
 					} else {
 						//출력모드 렌더링
+
 						return (
 							<article key={idx}>
 								<div className='txt'>
@@ -149,5 +162,13 @@ Read : 게시글 보기
 Updata : 게시글 수정
 Delete : 게시글 삭제
 
-localStirage : 모든 브라우저가 가지고 있는 경량의 저장소
+localStirage : 모든 브라우저가 가지고 있는 경량의 저장소 
+
+로컬저장소에 데이터 저장
+localStorage.setItem({key: 'value});
+객체를 문자화시켜서 저장
+
+로컬저장소에 데이터 가져옴
+localStorage.getItem({key})
+문자화되어있는 객체를 다시 parsing해서 호출
 */
