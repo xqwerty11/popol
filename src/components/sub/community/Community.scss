@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&family=Roboto:wght@100&display=swap');
 .Community {
 	.content {
+		h1 {
+			text-align: center;
+			color: rgb(0, 0, 0);
+			font: 150px/1.4 'Nanum Myeongjo';
+		}
 		.inputBox {
 			width: 100%;
 			border: 1px solid #aaa;
@@ -9,15 +15,20 @@
 
 			input[type='text'],
 			textarea {
-				width: 50%;
+				width: 60%;
 				padding: 8px 10px;
 				border: 1px solid #aaa;
 				resize: none;
 				margin-bottom: 10px;
-				background: #d1d1d1;
+				background: #eaeaea;
 			}
 
 			.btnSet {
+				width: 70%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				transform: translate(20%, 0);
 				button {
 					width: 150px;
 					height: 30px;
@@ -26,51 +37,89 @@
 					background: #555;
 					color: #fff;
 					cursor: pointer;
-					margin-left: 31px;
-					margin-right: 31px;
+					margin-left: 55px;
+					margin-right: 35px;
 				}
 			}
 		}
 
-		.showBox {
+		.bigBox {
 			width: 100%;
-			border: 1px solid #aaa;
-			padding: 50px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			.showBox {
+				width: 80%;
+				border: 1px solid #aaa;
+				padding: 50px;
 
-			article {
-				background: #fff;
-				padding: 30px;
-				margin-bottom: 40px;
-				display: flex;
-				justify-content: space-between;
-				align-content: center;
-				flex-wrap: wrap;
-
-				.txt {
-					width: 88%;
-					h2 {
-						margin-bottom: 10px;
-					}
-				}
-				.btnSet {
+				article {
 					width: 100%;
-					display: flex;
-					gap: 20px;
-					align-items: center;
-					justify-content: flex-end;
+					background: #fff;
+					padding: 30px;
+					margin-bottom: 40px;
 
-					button {
-						border: none;
-						background: transparent;
-						cursor: pointer;
-						&:nth-of-type(1) {
-							color: orange;
+					display: flex;
+					justify-content: space-between;
+					align-content: center;
+					flex-wrap: wrap;
+					border: 1px solid #777;
+
+					.txt {
+						width: 88%;
+						h2 {
+							margin-bottom: 10px;
 						}
-						&:nth-of-type(2) {
-							color: rgb(255, 64, 0);
+					}
+					.btnSet {
+						width: 100%;
+						display: flex;
+						gap: 20px;
+						align-items: center;
+						justify-content: flex-end;
+
+						button {
+							width: 100px;
+							height: 40px;
+							border: none;
+							background: #8c8c8c;
+							cursor: pointer;
+							&:nth-of-type(1) {
+								color: rgb(255, 255, 255);
+							}
+							&:nth-of-type(2) {
+								color: rgb(255, 255, 255);
+							}
 						}
 					}
 				}
+			}
+			.smallBox {
+				width: 20%;
+				background: linear-gradient(200deg, white, gray);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				h2 {
+					width: 50%;
+					text-align: center;
+				}
+			}
+		}
+
+		.conBox {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 40px;
+			justify-content: center;
+			background: linear-gradient(-80deg, white, gray);
+			h2 {
+				width: 70%;
+				text-align: center;
+				margin-top: 50px;
+				margin-bottom: 50px;
 			}
 		}
 	}
