@@ -94,6 +94,10 @@ export default function Community() {
 			</div>
 
 			<div className='inputBox'>
+				<article>
+					<h2>input</h2>
+					<p>Lorem, ipsum dolor.</p>
+				</article>
 				<input ref={refInput} type='text' placeholder='제목을 입력하세요.' />
 				<br />
 				<textarea ref={refTextarea} cols='30' rows='3' placeholder='본문을 입력하세요.'></textarea>

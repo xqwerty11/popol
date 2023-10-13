@@ -13,6 +13,16 @@
 			margin-bottom: 50px;
 			text-align: center;
 
+			article {
+				h2 {
+					font-size: 40px;
+				}
+				p {
+					font-size: 20px;
+					margin-bottom: 30px;
+				}
+			}
+
 			input[type='text'],
 			textarea {
 				width: 60%;
@@ -69,6 +79,15 @@
 					.txt {
 						width: 88%;
 						margin: 10px;
+						input[type='text'],
+						textarea {
+							width: 60%;
+							padding: 8px 10px;
+							border: 1px solid #3a3a3a;
+							resize: none;
+							margin-bottom: 10px;
+							background: #e3e3e3;
+						}
 
 						h2 {
 							width: 100%;

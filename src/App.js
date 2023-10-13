@@ -9,6 +9,7 @@ import Gallery from './components/sub/gallery/Gallery';
 import Contact from './components/sub/contact/Contact';
 import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
+import Main from './components/main/mainWrap/Main';
 
 export default function App() {
 	return (
@@ -16,6 +17,7 @@ export default function App() {
 			<Switch>
 				<Route exact path='/'>
 					<Header isMain={true} />
+					<Main />
 				</Route>
 				<Route path='/'>
 					<Header isMain={false} />
