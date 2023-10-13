@@ -27,8 +27,10 @@ export default function Community() {
 	};
 
 	const deletePost = (delIndex) => {
-		//기존 Posts배열에 반복 돌면서 인수로 전달된 삭제 순법값과 현재 반복되는 배열의 순법값이 같지 않은 것만 리턴
-		setPosts(Posts.filter((_, idx) => delIndex !== idx));
+		if (window.confirm('정말 해당 게시글을 삭제하겠습니까?')) {
+			//기존 Posts배열을 반복 돌면서 인수로 전달된 삭제 순번값과 현재 반복되는 배열의 순번값이 같지 않은 것만 리턴
+			setPosts(Posts.filter((_, idx) => delIndex !== idx));
+		}
 	};
 
 	//해당 글을 수정모드로 변경시키는 함수
