@@ -10,6 +10,7 @@ import Contact from './components/sub/contact/Contact';
 import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
 import Main from './components/main/mainWrap/Main';
+import Footer from './components/common/footer/Footer';
 
 export default function App() {
 	return (
@@ -30,6 +31,7 @@ export default function App() {
 			<Route path='/contact' component={Contact} />
 			<Route path='/detail/:id' component={Detail} />
 			<Route path='/community' component={Community} />
+			<Footer />
 			{/* param는 url에 특정 컴포넌트를 연결할때 url로 정보값을 같이 전달 경로/:변수명 */}
 		</>
 	);

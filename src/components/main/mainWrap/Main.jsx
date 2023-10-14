@@ -1,3 +1,4 @@
+import Footer from '../../common/footer/Footer';
 import Info from '../info/Info';
 import News from '../news/News';
 import Visual from '../visual/Visual';
