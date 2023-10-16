@@ -10,6 +10,7 @@ export default function Members() {
 		email: '',
 		gender: false,
 		interests: false,
+		edu: '',
 	};
 
 	const [Val, setVal] = useState(initVal);
@@ -84,6 +85,11 @@ export default function Members() {
 		if (!value.interests) {
 			errs.interests = '관심사를 하나이상 체크해주세요';
 		}
+		//학력인증
+		if (!value.edu) {
+			errs.edu = '학력을 선택하세요';
+		}
+
 		return errs;
 	};
 
@@ -212,6 +218,23 @@ export default function Members() {
 								</td>
 							</tr>
 
+							{/* education */}
+							<tr>
+								<th>
+									<label htmlFor='edu'>Education</label>
+								</th>
+
+								<td>
+									<select name='edu' id='edu' onChange={handleChange}>
+										<option value=''>최종학력 선택하세요</option>
+										<option value='elementary-school'>초등학교 졸업</option>
+										<option value='middle-school'>중학교 졸업</option>
+										<option value='high-school'>고등학교 졸업</option>
+										<option value='college'>대학교 졸업</option>
+									</select>
+									{Errs.edu && <p>{Errs.edu}</p>}
+								</td>
+							</tr>
 							{/* btnSet */}
 							<tr>
 								<th colSpan='2'>
