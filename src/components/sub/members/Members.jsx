@@ -21,9 +21,39 @@ export default function Members() {
 	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
 	//만약 인증에러가 발생하면 해당 name값으로 에러문구를 생성해서 반환하는 함수
 	const check = (value) => {
+		const num = /[0-9]/; //0~9까지의 모든 값을 정규표현식으로 범위지정
+		const txt = /[a-zA-Z]/; // 대소문자 구분없이 모든 문자 범위지정
+		const spc = /[~!@#$%^&*()_]/; //모든 특수문자 지정
 		const errs = {};
 		if (value.userid.length < 5) {
 			errs.userid = '아이디는 최소 5글자 이상 입력하세요';
+		}
+		//비밀번호 인증 (5글자 이상 , 문자,숫자 특수문자 모두 포함)
+		if (
+			value.pwd1.length < 5 ||
+			!num.test(value.pwd1) ||
+			!txt.test(value.pwd1) ||
+			!spc.test(value.pwd1)
+		) {
+			errs.pwd1 = '비밀번호는 5글자이상,문자,숫자,특수문자를 모두 포함하세요';
+		}
+
+		if (value.pwd1 !== value.pwd2) {
+			errs.pwd2 = '2개의 비밀번호를 같게 입력하세요';
+		}
+
+		if (!value.email || !/@/.test(value.email)) {
+			errs.email = '이메을은 무조건 @를 포함해야 합니다';
+		} else {
+			const [forwrad, backward] = value.email.split('@');
+			if (!forwrad || !backward) {
+				errs.email = '이메일에 @앞뒤로 문자값이 있어야합니다';
+			} else {
+				const [forwrad, backward] = value.email.split('.');
+				if (!forwrad || !backward) {
+					errs.email = '이메일 . 앞뒤로 문자값이 있어야합니다';
+				}
+			}
 		}
 		return errs;
 	};
