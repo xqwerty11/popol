@@ -8,6 +8,7 @@ export default function Members() {
 		pwd1: '',
 		pwd2: '',
 		email: '',
+		gender: false,
 	};
 
 	const [Val, setVal] = useState(initVal);
@@ -19,6 +20,11 @@ export default function Members() {
 		setVal({ ...Val, [name]: value });
 	};
 
+	const handleRadio = (e) => {
+		const { name, checked } = e.target;
+		setVal({ ...Val, [name]: checked });
+	};
+
 	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
 	//만약 인증에러가 발생하면 해당 name값으로 에러문구를 생성해서 반환하는 함수
 	const check = (value) => {
@@ -26,6 +32,8 @@ export default function Members() {
 		const txt = /[a-zA-Z]/; // 대소문자 구분없이 모든 문자 범위지정
 		const spc = /[~!@#$%^&*()_]/; //모든 특수문자 지정
 		const errs = {};
+
+		//아이디 인증
 		if (value.userid.length < 5) {
 			errs.userid = '아이디는 최소 5글자 이상 입력하세요';
 		}
@@ -39,10 +47,12 @@ export default function Members() {
 			errs.pwd1 = '비밀번호는 5글자이상,문자,숫자,특수문자를 모두 포함하세요';
 		}
 
+		//비밀번호 2차인증
 		if (value.pwd1 !== value.pwd2 || !value.pwd2) {
 			errs.pwd2 = '2개의 비밀번호를 같게 입력하세요';
 		}
 
+		//이메일인증
 		if (!value.email || !/@/.test(value.email)) {
 			errs.email = '이메을은 무조건 @를 포함해야 합니다';
 		} else {
@@ -55,6 +65,11 @@ export default function Members() {
 					errs.email = '이메일 . 앞뒤로 문자값이 있어야합니다';
 				}
 			}
+		}
+
+		//성별인증
+		if (!value.gender) {
+			errs.gender = '성별을 하나이상 선택해 주세요';
 		}
 		return errs;
 	};
@@ -128,7 +143,7 @@ export default function Members() {
 									{Errs.pwd2 && <p>{Errs.pwd2}</p>}
 								</td>
 							</tr>
-
+							{/* email */}
 							<tr>
 								<th scope='row'>
 									<label htmlFor='email'>email</label>
@@ -142,6 +157,19 @@ export default function Members() {
 										onChange={handleChange}
 									/>
 									{Errs.email && <p>{Errs.email}</p>}
+								</td>
+							</tr>
+							{/* gender */}
+							<tr>
+								<th>gender</th>
+								<td>
+									<label htmlFor='female'>female</label>
+									<input type='radio' name='gender' id='female' onChange={handleRadio} />
+
+									<label htmlFor='male'>male</label>
+									<input type='radio' name='gender' id='male' onChange={handleRadio} />
+
+									{Errs.gender && <p>{Errs.gender}</p>}
 								</td>
 							</tr>
 
