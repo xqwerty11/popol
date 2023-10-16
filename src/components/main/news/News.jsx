@@ -4,7 +4,8 @@ import { useState } from 'react';
 function News() {
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
-		return JSON.parse(data);
+		if (data) return JSON.parse(data);
+		else return [];
 	};
 	const [Post] = useState(getLocalData());
 	return (

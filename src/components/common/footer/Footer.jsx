@@ -4,7 +4,7 @@ export default function Footer() {
 	return (
 		<footer className='footer'>
 			<div className='fooBox'>
-				<h2>LOGO</h2>
+				<h2>FOOTER</h2>
 
 				<ul className='ulBox'>
 					<li>lorem</li>

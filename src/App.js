@@ -12,7 +12,7 @@ import Community from './components/sub/community/Community';
 import Main from './components/main/mainWrap/Main';
 import Footer from './components/common/footer/Footer';
 
-export default function App() {
+export default function App({ isMain }) {
 	return (
 		<>
 			<Switch>
