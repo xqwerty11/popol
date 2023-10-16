@@ -28,13 +28,11 @@
 			width: 100%;
 			display: flex;
 			flex-wrap: wrap;
-			margin-top: -2%;
-			margin-bottom: -10%;
-			flex-direction: column;
+
+			justify-content: space-between;
 
 			h2 {
 				width: 70%;
-				height: 50%;
 				margin-bottom: 30px;
 				font-size: 30px;
 				color: #111;
@@ -48,7 +46,7 @@
 
 		article {
 			width: 30%;
-			margin-top: 20px;
+			margin-bottom: 50px;
 			text-align: center;
 
 			&:hover {
@@ -119,7 +117,7 @@
 		.subBox {
 			position: relative;
 			margin-top: 100px;
-			width: 32%;
+			width: 30%;
 
 			div {
 				background-color: #979797;
