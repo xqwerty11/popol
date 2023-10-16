@@ -1,10 +1,15 @@
-.Members {
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&family=Roboto:wght@100&display=swap');
+
+.SayHello {
 	.content {
+		h1 {
+			font: 150px/1 'Nanum Myeongjo';
+			color: black;
+			text-align: center;
+		}
 		table {
 			width: 100%;
 			border: none;
-			border-top: 2px solid #333;
-			border-bottom: 2px solid #333;
 
 			th {
 				width: 20%;
@@ -16,7 +21,7 @@
 					text-align: center;
 					input[type='submit'],
 					input[type='reset'] {
-						border: 1px solid #aaa;
+						border: 1px solid #5a5a5a;
 						width: 150px;
 						height: 30px;
 						display: inline-flex;
@@ -24,13 +29,14 @@
 						align-items: center;
 						margin: 0px 10px;
 						cursor: pointer;
+						background: #5a5a5a;
+						color: #fff;
 					}
 				}
 			}
 			td {
 				border: none;
 				border-bottom: 1px solid #bbb;
-				border-left: 1px solid #bbb;
 				padding: 15px 30px;
 
 				input[type='text'],
@@ -38,12 +44,29 @@
 					width: 40%;
 					border: 1px solid #aaa;
 					padding: 6px 10px;
-					background: #dcdcdc;
 				}
 				p {
 					font: 0.8rem/1.2 '돋움';
 					color: #ff0000;
 					margin-top: 5px;
+				}
+
+				input[type='radio'],
+				input[type='checkbox'] {
+					appearance: none;
+					border: max(2px, 0.1em) solid rgb(105, 105, 105);
+					border-radius: 50%;
+					width: 1.25em;
+					height: 1.25em;
+					transition: border 0.2s ease-in-out;
+				}
+				input[type='radio']:checked,
+				input[type='checkbox']:checked {
+					border: 0.4em solid rgb(230, 3, 3);
+				}
+				label {
+					font-size: 18px;
+					padding: 0.2em 0.4em;
 				}
 			}
 		}

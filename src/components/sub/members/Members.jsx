@@ -9,6 +9,7 @@ export default function Members() {
 		pwd2: '',
 		email: '',
 		gender: false,
+		interests: false,
 	};
 
 	const [Val, setVal] = useState(initVal);
@@ -25,6 +26,13 @@ export default function Members() {
 		setVal({ ...Val, [name]: checked });
 	};
 
+	const handleCheck = (e) => {
+		const { name } = e.target;
+		let isChecked = false;
+		const inputs = e.target.parentElement.querySelectorAll('input');
+		inputs.forEach((input) => input.checked && (isChecked = true));
+		setVal({ ...Val, [name]: isChecked });
+	};
 	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
 	//만약 인증에러가 발생하면 해당 name값으로 에러문구를 생성해서 반환하는 함수
 	const check = (value) => {
@@ -69,7 +77,12 @@ export default function Members() {
 
 		//성별인증
 		if (!value.gender) {
-			errs.gender = '성별을 하나이상 선택해 주세요';
+			errs.gender = '성별은 필수 체크항목입니다.';
+		}
+
+		//관심사인증
+		if (!value.interests) {
+			errs.interests = '관심사를 하나이상 체크해주세요';
 		}
 		return errs;
 	};
@@ -88,7 +101,17 @@ export default function Members() {
 	};
 
 	return (
-		<Layout title={'Members'}>
+		<Layout title={'SayHello'}>
+			<section className='conBox'>
+				<div>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum consequatur ad
+					laboriosam ipsa sit odit hic, impedit deleniti aut aliquam tenetur eos non soluta
+					voluptates optio quod reiciendis rem? Voluptatibus nesciunt aperiam officia amet quis,
+					dolor sit asperiores velit quidem dolorum numquam sed dicta id pariatur veniam, labore
+					molestias.
+				</div>
+			</section>
+
 			<form onSubmit={handleSubmit}>
 				<fieldset>
 					<legend className='h'>회원가입 폼 양식</legend>
@@ -170,6 +193,22 @@ export default function Members() {
 									<input type='radio' name='gender' id='male' onChange={handleRadio} />
 
 									{Errs.gender && <p>{Errs.gender}</p>}
+								</td>
+							</tr>
+
+							{/* interests */}
+							<tr>
+								<th>interests</th>
+								<td>
+									<label htmlFor='sports'>sports</label>
+									<input type='checkbox' id='sports' name='interests' onChange={handleCheck} />
+
+									<label htmlFor='game'>game</label>
+									<input type='checkbox' id='game' name='interests' onChange={handleCheck} />
+
+									<label htmlFor='music'>music</label>
+									<input type='checkbox' id='music' name='interests' onChange={handleCheck} />
+									{Errs.interests && <p>{Errs.interests}</p>}
 								</td>
 							</tr>
 
