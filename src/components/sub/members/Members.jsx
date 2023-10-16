@@ -1,6 +1,6 @@
 import Layout from '../../common/layout/Layout';
 import './Members.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Members() {
 	const initVal = {
@@ -11,6 +11,7 @@ export default function Members() {
 	};
 
 	const [Val, setVal] = useState(initVal);
+	const [Errs, setErrs] = useState({});
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -38,7 +39,7 @@ export default function Members() {
 			errs.pwd1 = '비밀번호는 5글자이상,문자,숫자,특수문자를 모두 포함하세요';
 		}
 
-		if (value.pwd1 !== value.pwd2) {
+		if (value.pwd1 !== value.pwd2 || !value.pwd2) {
 			errs.pwd2 = '2개의 비밀번호를 같게 입력하세요';
 		}
 
@@ -63,8 +64,14 @@ export default function Members() {
 	//하나라도 에러객체가 전달되면 인증실패처리하면서 name값과 매칭이 되는 input요소 아래쪽에 에러메세지 출력
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(check(Val));
+
+		if (Object.keys(check(Val)).length === 0) {
+			alert('인증통과');
+		} else {
+			setErrs(check(Val));
+		}
 	};
+
 	return (
 		<Layout title={'Members'}>
 			<form onSubmit={handleSubmit}>
@@ -86,6 +93,7 @@ export default function Members() {
 										value={Val.userid}
 										onChange={handleChange}
 									/>
+									{Errs.userid && <p>{Errs.userid}</p>}
 								</td>
 							</tr>
 							{/* password */}
@@ -101,6 +109,7 @@ export default function Members() {
 										value={Val.pwd1}
 										onChange={handleChange}
 									/>
+									{Errs.pwd1 && <p>{Errs.pwd1}</p>}
 								</td>
 							</tr>
 							{/* re password */}
@@ -116,6 +125,7 @@ export default function Members() {
 										value={Val.pwd2}
 										onChange={handleChange}
 									/>
+									{Errs.pwd2 && <p>{Errs.pwd2}</p>}
 								</td>
 							</tr>
 
@@ -131,6 +141,7 @@ export default function Members() {
 										value={Val.email}
 										onChange={handleChange}
 									/>
+									{Errs.email && <p>{Errs.email}</p>}
 								</td>
 							</tr>
 
