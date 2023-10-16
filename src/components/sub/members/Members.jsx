@@ -132,12 +132,11 @@ export default function Members() {
 	return (
 		<Layout title={'SayHello'}>
 			<section className='conBox'>
+				<h2>Lorem, ipsum dolor.</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum.</p>
+
 				<div>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum consequatur ad
-					laboriosam ipsa sit odit hic, impedit deleniti aut aliquam tenetur eos non soluta
-					voluptates optio quod reiciendis rem? Voluptatibus nesciunt aperiam officia amet quis,
-					dolor sit asperiores velit quidem dolorum numquam sed dicta id pariatur veniam, labore
-					molestias.
+					<h2>대충회원가입에오신걸환영한다는글</h2>
 				</div>
 			</section>
 

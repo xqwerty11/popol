@@ -1,5 +1,3 @@
-@import '/src/styles/Variable.scss';
-
 .header {
 	width: 100%;
 	padding: 3vh 10vw;
@@ -38,7 +36,7 @@
 	}
 }
 
-@media screen and (max-width: $tablet) {
+@media screen and (max-width: var(--tablet)) {
 	.header {
 		ul {
 			display: none;
