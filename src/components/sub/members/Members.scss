@@ -16,14 +16,14 @@
 				border: none;
 				border-bottom: 1px solid #bbb;
 				padding: 15px 30px;
-				text-align: left;
+				text-align: right;
 				&:last-child {
 					text-align: center;
 					input[type='submit'],
 					input[type='reset'] {
 						border: 1px solid #5a5a5a;
 						width: 150px;
-						height: 30px;
+						height: 40px;
 						display: inline-flex;
 						justify-content: center;
 						align-items: center;
@@ -31,6 +31,7 @@
 						cursor: pointer;
 						background: #5a5a5a;
 						color: #fff;
+						font-size: 15px;
 					}
 				}
 			}
@@ -67,6 +68,17 @@
 				label {
 					font-size: 18px;
 					padding: 0.2em 0.4em;
+				}
+
+				textarea {
+					border: 1px solid #aaa;
+					resize: none;
+					width: 40%;
+				}
+
+				select {
+					background: #fff;
+					height: 1.7rem;
 				}
 			}
 		}

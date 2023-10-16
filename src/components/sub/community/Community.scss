@@ -34,11 +34,11 @@
 			}
 
 			.btnSet {
-				width: 70%;
+				width: 60%;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
-				transform: translate(20%, 0);
+				transform: translate(33.4%, 0);
 				button {
 					width: 150px;
 					height: 30px;
@@ -47,8 +47,6 @@
 					background: #555;
 					color: #fff;
 					cursor: pointer;
-					margin-left: 55px;
-					margin-right: 35px;
 				}
 			}
 		}

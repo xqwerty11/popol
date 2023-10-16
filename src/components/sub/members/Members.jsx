@@ -1,6 +1,6 @@
 import Layout from '../../common/layout/Layout';
 import './Members.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function Members() {
 	const initVal = {
@@ -11,10 +11,28 @@ export default function Members() {
 		gender: false,
 		interests: false,
 		edu: '',
+		comments: '',
 	};
-
+	const refCheckGroup = useRef(null);
+	const refRadioGroup = useRef(null);
+	const refSelGroup = useRef(null);
 	const [Val, setVal] = useState(initVal);
 	const [Errs, setErrs] = useState({});
+
+	const resetForm = (e) => {
+		e.preventDefault();
+		setVal(initVal);
+
+		// const checks = refCheckGroup.current.querySelectorAll('input');
+		// const radios = refRadioGroup.current.querySelectorAll('input');
+		// checks.forEach((input) => (input.checked = false));
+		// radios.forEach((input) => (input.checked = false));
+
+		[refCheckGroup, refRadioGroup].forEach((el) =>
+			el.current.querySelectorAll('input').forEach((input) => (input.checked = false))
+		);
+		refSelGroup.current.value = '';
+	};
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -88,6 +106,11 @@ export default function Members() {
 		//학력인증
 		if (!value.edu) {
 			errs.edu = '학력을 선택하세요';
+		}
+
+		//남기는말 인증
+		if (value.comments.length < 10) {
+			errs.comments = '남기는말은 10글자 이상 입력하세요.';
 		}
 
 		return errs;
@@ -191,7 +214,7 @@ export default function Members() {
 							{/* gender */}
 							<tr>
 								<th>gender</th>
-								<td>
+								<td ref={refRadioGroup}>
 									<label htmlFor='female'>female</label>
 									<input type='radio' name='gender' id='female' onChange={handleRadio} />
 
@@ -201,11 +224,10 @@ export default function Members() {
 									{Errs.gender && <p>{Errs.gender}</p>}
 								</td>
 							</tr>
-
 							{/* interests */}
 							<tr>
 								<th>interests</th>
-								<td>
+								<td ref={refCheckGroup}>
 									<label htmlFor='sports'>sports</label>
 									<input type='checkbox' id='sports' name='interests' onChange={handleCheck} />
 
@@ -217,7 +239,6 @@ export default function Members() {
 									{Errs.interests && <p>{Errs.interests}</p>}
 								</td>
 							</tr>
-
 							{/* education */}
 							<tr>
 								<th>
@@ -225,7 +246,7 @@ export default function Members() {
 								</th>
 
 								<td>
-									<select name='edu' id='edu' onChange={handleChange}>
+									<select name='edu' id='edu' onChange={handleChange} ref={refSelGroup}>
 										<option value=''>최종학력 선택하세요</option>
 										<option value='elementary-school'>초등학교 졸업</option>
 										<option value='middle-school'>중학교 졸업</option>
@@ -235,10 +256,29 @@ export default function Members() {
 									{Errs.edu && <p>{Errs.edu}</p>}
 								</td>
 							</tr>
+
+							{/* comments */}
+							<tr>
+								<th>
+									<label htmlFor='comments'>comments</label>
+								</th>
+								<td>
+									<textarea
+										name='comments'
+										id=''
+										cols='30'
+										rows='3'
+										value={Val.comments}
+										onChange={handleChange}
+									></textarea>
+									{Errs.comments && <p>{Errs.comments}</p>}
+								</td>
+							</tr>
+
 							{/* btnSet */}
 							<tr>
 								<th colSpan='2'>
-									<input type='reset' value='cancel' />
+									<input type='reset' value='cancel' onClick={resetForm} />
 									<input type='submit' value='send' />
 								</th>
 							</tr>

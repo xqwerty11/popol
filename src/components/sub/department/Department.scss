@@ -28,6 +28,7 @@
 			width: 100%;
 			display: flex;
 			flex-wrap: wrap;
+			margin-top: -2%;
 			margin-bottom: -10%;
 			flex-direction: column;
 
@@ -47,7 +48,7 @@
 
 		article {
 			width: 30%;
-			margin-bottom: 50px;
+			margin-top: 20px;
 			text-align: center;
 
 			&:hover {
@@ -118,7 +119,7 @@
 		.subBox {
 			position: relative;
 			margin-top: 100px;
-			width: 30%;
+			width: 32%;
 
 			div {
 				background-color: #979797;
