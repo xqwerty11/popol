@@ -166,3 +166,320 @@
 		}
 	}
 }
+
+.tablet {
+	.Community {
+		.content {
+			.inputBox {
+				article {
+					h2 {
+						font-size: 40px;
+					}
+					p {
+						font-size: 20px;
+						margin-bottom: 30px;
+					}
+				}
+
+				input[type='text'],
+				textarea {
+					width: 100%;
+					padding: 8px 10px;
+					border: 1px solid #aaa;
+					resize: none;
+					margin-bottom: 10px;
+					background: #eaeaea;
+				}
+
+				.btnSet {
+					width: 90%;
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					transform: translate(5%, 0);
+					button {
+						width: 150px;
+						height: 30px;
+						display: inline-block;
+						border: none;
+						background: #555;
+						color: #fff;
+						cursor: pointer;
+					}
+				}
+			}
+
+			.bigBox {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				.showBox {
+					width: 80%;
+					border: 1px solid #aaa;
+					padding: 50px;
+
+					article {
+						width: 100%;
+						background: #fff;
+						padding: 30px;
+						margin-bottom: 40px;
+						position: relative;
+
+						display: flex;
+						justify-content: space-between;
+						align-content: center;
+						flex-wrap: wrap;
+						border: 1px solid #777;
+
+						.txt {
+							width: 88%;
+							margin: 10px;
+							input[type='text'],
+							textarea {
+								width: 60%;
+								padding: 8px 10px;
+								border: 1px solid #3a3a3a;
+								resize: none;
+								margin-bottom: 10px;
+								background: #e3e3e3;
+							}
+
+							h2 {
+								width: 100%;
+								margin-bottom: 10px;
+							}
+							p {
+								width: 100%;
+								margin-bottom: 100px;
+							}
+
+							.txtto {
+								width: 100%;
+								display: flex;
+								flex-wrap: wrap;
+
+								span {
+									width: 60%;
+									color: #a9a9a9;
+								}
+							}
+						}
+						.btnSet {
+							width: 50%;
+							display: inline-flex;
+							gap: 20px;
+							align-items: center;
+							justify-content: flex-end;
+							position: absolute;
+							right: 0px;
+							bottom: 20px;
+							left: 47%;
+
+							button {
+								width: 100px;
+								height: 40px;
+								border: none;
+								background: #8c8c8c;
+								cursor: pointer;
+								&:nth-of-type(1) {
+									color: rgb(255, 255, 255);
+								}
+								&:nth-of-type(2) {
+									color: rgb(255, 255, 255);
+								}
+							}
+						}
+					}
+				}
+				.smallBox {
+					width: 20%;
+					background: linear-gradient(200deg, white, gray);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border: 1px solid #777;
+					border-left: none;
+
+					h2 {
+						width: 100%;
+						text-align: center;
+					}
+				}
+			}
+
+			.conBox {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: 40px;
+				justify-content: center;
+				background: linear-gradient(-80deg, white, gray);
+				h2 {
+					width: 70%;
+					text-align: center;
+					margin-top: 50px;
+					margin-bottom: 50px;
+				}
+			}
+		}
+	}
+}
+
+.mobile {
+	.Community {
+		.content {
+			.inputBox {
+				article {
+					h2 {
+						font-size: 40px;
+					}
+					p {
+						font-size: 20px;
+						margin-bottom: 30px;
+					}
+				}
+
+				input[type='text'],
+				textarea {
+					width: 100%;
+					padding: 8px 10px;
+					border: 1px solid #aaa;
+					resize: none;
+					margin-bottom: 10px;
+					background: #eaeaea;
+				}
+
+				.btnSet {
+					width: 100%;
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					transform: translate(0%, 0);
+					button {
+						width: 100px;
+						height: auto;
+						display: inline-block;
+						border: none;
+						background: #555;
+						color: #fff;
+						cursor: pointer;
+					}
+				}
+			}
+
+			.bigBox {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				.showBox {
+					width: 80%;
+					border: 1px solid #aaa;
+					padding: 50px;
+
+					article {
+						width: 100%;
+						background: #fff;
+						padding: 30px;
+						margin-bottom: 40px;
+						position: relative;
+						display: flex;
+						justify-content: space-between;
+						align-content: center;
+						flex-wrap: wrap;
+						border: 1px solid #777;
+
+						.txt {
+							width: 88%;
+							margin: 10px;
+							input[type='text'],
+							textarea {
+								width: 60%;
+								padding: 8px 10px;
+								border: 1px solid #3a3a3a;
+								resize: none;
+								margin-bottom: 10px;
+								background: #e3e3e3;
+							}
+
+							h2 {
+								width: 100%;
+								margin-bottom: 10px;
+							}
+							p {
+								width: 100%;
+								margin-bottom: 100px;
+							}
+
+							.txtto {
+								width: 100%;
+								display: flex;
+								flex-wrap: wrap;
+
+								span {
+									width: 60%;
+									color: #a9a9a9;
+								}
+							}
+						}
+						.btnSet {
+							width: 60%;
+							display: inline-flex;
+							gap: 20px;
+							align-items: center;
+							justify-content: flex-end;
+							position: absolute;
+							right: 0px;
+							bottom: 0px;
+							left: 20%;
+
+							button {
+								width: 100px;
+								height: 40px;
+								border: none;
+								background: #8c8c8c;
+								cursor: pointer;
+								&:nth-of-type(1) {
+									color: rgb(255, 255, 255);
+								}
+								&:nth-of-type(2) {
+									color: rgb(255, 255, 255);
+								}
+							}
+						}
+					}
+				}
+				.smallBox {
+					width: 20%;
+					background: linear-gradient(200deg, white, gray);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border: 1px solid #777;
+					border-left: none;
+
+					h2 {
+						width: 100%;
+						text-align: center;
+					}
+				}
+			}
+
+			.conBox {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: 40px;
+				justify-content: center;
+				background: linear-gradient(-80deg, white, gray);
+				h2 {
+					width: 70%;
+					text-align: center;
+					margin-top: 50px;
+					margin-bottom: 50px;
+				}
+			}
+		}
+	}
+}
