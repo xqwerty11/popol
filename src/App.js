@@ -1,4 +1,3 @@
-import './styles/index.css';
 import './styles/Global.scss';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/common/header/Header';
@@ -12,9 +11,13 @@ import Community from './components/sub/community/Community';
 import Main from './components/main/mainWrap/Main';
 import Footer from './components/common/footer/Footer';
 
+import { useMedia } from './hooks/useMedia';
+
 export default function App({ isMain }) {
+	useMedia();
+
 	return (
-		<>
+		<main className={useMedia({ tablet: 700 })}>
 			<Switch>
 				<Route exact path='/'>
 					<Header isMain={true} />
@@ -33,6 +36,6 @@ export default function App({ isMain }) {
 			<Route path='/community' component={Community} />
 			<Footer />
 			{/* param는 url에 특정 컴포넌트를 연결할때 url로 정보값을 같이 전달 경로/:변수명 */}
-		</>
+		</main>
 	);
 }

@@ -140,33 +140,3 @@
 		}
 	}
 }
-
-@media screen and (max-width: var(--laptop)) {
-	.Gallery {
-		.picFrame {
-			article {
-				width: 33.333%;
-			}
-		}
-	}
-}
-
-@media screen and (max-width: var(--tablet)) {
-	.Gallery {
-		.picFrame {
-			article {
-				width: 50%;
-			}
-		}
-	}
-}
-
-@media screen and (max-width: var(--mobile)) {
-	.Gallery {
-		.picFrame {
-			article {
-				width: 100%;
-			}
-		}
-	}
-}
