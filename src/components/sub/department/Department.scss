@@ -159,3 +159,451 @@
 		}
 	}
 }
+
+.laptop {
+	.BRANIN {
+		.content {
+			h1 {
+				font: 150px/1 'Nanum Myeongjo';
+				color: black;
+				text-align: center;
+			}
+		}
+		figure {
+			background-color: lightblue;
+		}
+
+		.memberBox {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			.lorem {
+				width: 100%;
+				margin-bottom: 50px;
+				color: #444444;
+				text-align: center;
+			}
+			.subpageBox {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+
+				justify-content: space-between;
+
+				h2 {
+					width: 70%;
+					margin-bottom: 30px;
+					font-size: 30px;
+					color: #111;
+				}
+				p {
+					width: 30%;
+					font-size: 13px;
+					color: #777;
+				}
+			}
+
+			article {
+				width: 40%;
+				margin-bottom: 50px;
+				text-align: center;
+
+				&:hover {
+					p {
+						color: rgb(129, 129, 129);
+					}
+					h2 {
+						transition: 0.5s;
+						&::before {
+							width: 60px;
+						}
+					}
+					img {
+						transform: scale(105%);
+					}
+				}
+
+				.pic {
+					width: 100%;
+					height: 40vw;
+
+					img {
+						border-radius: 50%;
+						width: 100%;
+						height: 75%;
+						object-fit: cover;
+						transition: 0.5s;
+						position: relative;
+						filter: grayscale(1);
+
+						&:hover {
+							transform: scale(105%);
+							filter: grayscale(0);
+						}
+					}
+				}
+
+				h2 {
+					margin-top: -90px;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 100%;
+						left: 50%;
+						transform: translate(-50%, 0%);
+						display: block;
+						height: 2px;
+						width: 0%;
+						background: #555;
+						transition: 0.5s;
+					}
+				}
+			}
+
+			border-bottom: 1px solid rgb(168, 168, 168);
+		}
+
+		.conBox {
+			position: relative;
+			top: -30px;
+			width: 100%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+
+			.subBox {
+				position: relative;
+				margin-top: 100px;
+				width: 30%;
+
+				div {
+					background-color: #979797;
+					width: 100%;
+					height: 250px;
+					transition: 0.5s;
+					&:hover {
+						background-color: rgb(21, 21, 21);
+					}
+				}
+				h2 {
+					margin-top: 10px;
+					font-size: 20px;
+					color: #666;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 120%;
+						left: 50%;
+						transform: translate(-50%, -10%);
+						display: block;
+						height: 2px;
+						width: 100%;
+						background: #555;
+						transition: 0.5s;
+					}
+				}
+				P {
+					margin-top: 20px;
+					font-size: 13px;
+					color: rgb(125, 125, 125);
+				}
+				span {
+					color: #666;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
+
+.tablet {
+	.BRANIN {
+		.memberBox {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			article {
+				width: 60%;
+				margin-bottom: 50px;
+				text-align: center;
+
+				&:hover {
+					p {
+						color: rgb(129, 129, 129);
+					}
+					h2 {
+						transition: 0.5s;
+						&::before {
+							width: 60px;
+						}
+					}
+					img {
+						transform: scale(105%);
+					}
+				}
+
+				.pic {
+					height: 60vw;
+
+					img {
+						border-radius: 50%;
+						width: 100%;
+						height: 75%;
+						object-fit: cover;
+						transition: 0.5s;
+						position: relative;
+						filter: grayscale(1);
+
+						&:hover {
+							transform: scale(105%);
+							filter: grayscale(0);
+						}
+					}
+				}
+
+				h2 {
+					margin-top: -90px;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 100%;
+						left: 50%;
+						transform: translate(-50%, 0%);
+						display: block;
+						height: 2px;
+						width: 0%;
+						background: #555;
+						transition: 0.5s;
+					}
+				}
+			}
+
+			border-bottom: 1px solid rgb(168, 168, 168);
+		}
+
+		.conBox {
+			position: relative;
+			top: -30px;
+			width: 100%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+
+			.subBox {
+				position: relative;
+				margin-top: 100px;
+				width: 30%;
+
+				div {
+					background-color: #979797;
+					width: 100%;
+					height: 250px;
+					transition: 0.5s;
+					&:hover {
+						background-color: rgb(21, 21, 21);
+					}
+				}
+				h2 {
+					margin-top: 10px;
+					font-size: 20px;
+					color: #666;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 120%;
+						left: 50%;
+						transform: translate(-50%, -10%);
+						display: block;
+						height: 2px;
+						width: 100%;
+						background: #555;
+						transition: 0.5s;
+					}
+				}
+				P {
+					margin-top: 20px;
+					font-size: 13px;
+					color: rgb(125, 125, 125);
+				}
+				span {
+					color: #666;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
+
+.mobile {
+	.BRANIN {
+		.content {
+			h1 {
+				font: 150px/1 'Nanum Myeongjo';
+				color: black;
+				text-align: center;
+			}
+		}
+		figure {
+			background-color: lightblue;
+		}
+
+		.memberBox {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			.lorem {
+				width: 100%;
+				margin-bottom: 50px;
+				color: #444444;
+				text-align: center;
+			}
+			.subpageBox {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+
+				justify-content: space-between;
+
+				h2 {
+					width: 70%;
+					margin-bottom: 30px;
+					font-size: 30px;
+					color: #111;
+				}
+				p {
+					width: 30%;
+					font-size: 13px;
+					color: #777;
+				}
+			}
+
+			article {
+				width: 100%;
+				margin-bottom: 50px;
+				text-align: center;
+
+				&:hover {
+					p {
+						color: rgb(129, 129, 129);
+					}
+					h2 {
+						transition: 0.5s;
+						&::before {
+							width: 60px;
+						}
+					}
+					img {
+						transform: scale(105%);
+					}
+				}
+
+				.pic {
+					width: 100%;
+					height: 100vw;
+
+					img {
+						border-radius: 50%;
+						width: 100%;
+						height: 75%;
+						object-fit: cover;
+						transition: 0.5s;
+						position: relative;
+						filter: grayscale(1);
+
+						&:hover {
+							transform: scale(105%);
+							filter: grayscale(0);
+						}
+					}
+				}
+
+				h2 {
+					margin-top: -90px;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 100%;
+						left: 50%;
+						transform: translate(-50%, 0%);
+						display: block;
+						height: 2px;
+						width: 0%;
+						background: #555;
+						transition: 0.5s;
+					}
+				}
+			}
+
+			border-bottom: 1px solid rgb(168, 168, 168);
+		}
+
+		.conBox {
+			position: relative;
+			top: -30px;
+			width: 100%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+
+			.subBox {
+				position: relative;
+				margin-top: 100px;
+				width: 30%;
+
+				div {
+					background-color: #979797;
+					width: 100%;
+					height: 250px;
+					transition: 0.5s;
+					&:hover {
+						background-color: rgb(21, 21, 21);
+					}
+				}
+				h2 {
+					margin-top: 10px;
+					font-size: 20px;
+					color: #666;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 120%;
+						left: 50%;
+						transform: translate(-50%, -10%);
+						display: block;
+						height: 2px;
+						width: 100%;
+						background: #555;
+						transition: 0.5s;
+					}
+				}
+				P {
+					margin-top: 20px;
+					font-size: 13px;
+					color: rgb(125, 125, 125);
+				}
+				span {
+					color: #666;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
