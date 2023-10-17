@@ -12,10 +12,17 @@ import Main from './components/main/mainWrap/Main';
 import Footer from './components/common/footer/Footer';
 
 import { useMedia } from './hooks/useMedia';
+import { useEffect } from 'react';
+import { fetchYoutube } from './redux/youtubeSlice';
+import { useDispatch } from 'react-redux';
 
 export default function App({ isMain }) {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		//컴포넌트 마운트시 fetchYoutube가 반환한 action객체를 dispatch함수를 통해서 리듀서에 전달
+		dispatch(fetchYoutube());
+	}, []);
 	useMedia();
-
 	return (
 		<main className={useMedia({})}>
 			<Switch>
