@@ -218,11 +218,6 @@
 	.Contact {
 		.content {
 			width: 100%;
-			h1 {
-				text-align: center;
-				color: rgb(0, 0, 0);
-				font: 150px/1.4 'Nanum Myeongjo';
-			}
 		}
 		figure {
 			background: orange;
@@ -286,7 +281,7 @@
 				button {
 					width: 20%;
 					display: block;
-					height: 100px;
+					height: auto;
 					background: #444;
 					border: 1px solid #666;
 					font: 1rem/40px 'arial';
@@ -307,7 +302,7 @@
 
 				li {
 					width: 150px;
-					height: 100px;
+					height: auto;
 					cursor: pointer;
 					display: flex;
 					justify-content: center;
@@ -435,11 +430,6 @@
 	.Contact {
 		.content {
 			width: 100%;
-			h1 {
-				text-align: center;
-				color: rgb(0, 0, 0);
-				font: 150px/1.4 'Nanum Myeongjo';
-			}
 		}
 		figure {
 			background: orange;
@@ -503,7 +493,7 @@
 				button {
 					width: 20%;
 					display: block;
-					height: 150px;
+					height: auto;
 					background: #444;
 					border: 1px solid #666;
 					font: 1rem/40px 'arial';
@@ -524,7 +514,7 @@
 
 				li {
 					width: 150px;
-					height: 150px;
+					height: auto;
 					cursor: pointer;
 					display: flex;
 					justify-content: center;
