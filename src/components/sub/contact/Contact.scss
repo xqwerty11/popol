@@ -212,3 +212,439 @@
 		}
 	}
 }
+
+.laptop,
+.tablet {
+	.Contact {
+		.content {
+			width: 100%;
+			h1 {
+				text-align: center;
+				color: rgb(0, 0, 0);
+				font: 150px/1.4 'Nanum Myeongjo';
+			}
+		}
+		figure {
+			background: orange;
+		}
+
+		.conBox {
+			width: 70vw;
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0px auto;
+			position: relative;
+			background: linear-gradient(50deg, rgb(231, 231, 231), rgb(184, 184, 184));
+			margin-bottom: 20px;
+
+			h2 {
+				width: 30%;
+				color: #2d2d2d;
+				margin-top: 10px;
+				margin-bottom: 5px;
+				font: 40px/1 'arial';
+				padding: 10px;
+			}
+			p {
+				width: 100%;
+				margin-bottom: 30px;
+				font: 20px/1 'arial';
+				color: #686868;
+				padding: 10px;
+				margin-top: -20px;
+			}
+			span {
+				width: 70%;
+				margin-bottom: 50px;
+				font-size: 12px;
+				font-family: 'arial';
+				padding: 10px;
+			}
+		}
+
+		.sun {
+			width: 70vw;
+			border-bottom: 1px solid black;
+			margin: 0 auto;
+		}
+
+		#Box {
+			width: 70%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 0 auto;
+
+			.butBox {
+				width: 60%;
+				margin: 0 auto;
+
+				margin-bottom: 30px;
+				display: flex;
+				flex-wrap: wrap;
+
+				button {
+					width: 20%;
+					display: block;
+					height: 100px;
+					background: #444;
+					border: 1px solid #666;
+					font: 1rem/40px 'arial';
+					color: #ffffff;
+					text-align: center;
+					margin-top: 30px;
+					margin-right: 10px;
+				}
+			}
+
+			ul {
+				width: 40%;
+				margin-top: 30px;
+				margin-bottom: 40px;
+				display: flex;
+				gap: 20px;
+				justify-content: right;
+
+				li {
+					width: 150px;
+					height: 100px;
+					cursor: pointer;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background: #444;
+					border: 1px solid #666;
+					font: 1rem/40px 'arial';
+					color: #ffffff;
+					text-align: center;
+				}
+
+				li.on {
+					color: rgb(178, 178, 178);
+				}
+			}
+		}
+
+		.container {
+			width: 100%;
+			height: 60vh;
+			background: #111;
+			position: relative;
+			margin-bottom: 50px;
+		}
+		.map,
+		.view {
+			width: 100%;
+			height: 60vh;
+			background: #111;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: 1;
+
+			&.on {
+				opacity: 1;
+				z-index: 2;
+			}
+		}
+
+		#mailbox {
+			width: 70vw;
+
+			border-top: 1px solid rgb(137, 137, 137);
+			border-bottom: 1px solid rgb(137, 137, 137);
+			margin: 0 auto;
+			.upper {
+				width: 50%;
+				display: flex;
+				margin-bottom: 50px;
+
+				label {
+					font: bold 1rem/1 'arial';
+					color: #555;
+					margin-right: 10px;
+					position: relative;
+					top: 10px;
+				}
+				input[type='text'],
+				input[type='email'] {
+					border: none;
+					padding: 10px 20px;
+					border-bottom: 1px solid #555;
+					margin-right: 50px;
+					outline: none;
+					background: none;
+				}
+			}
+
+			.lower {
+				width: 100%;
+				margin-bottom: 10px;
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: 20px;
+				label {
+					font: bold 1rem/1 'arial';
+					color: #555;
+					margin-right: 10px;
+					position: relative;
+					top: -10px;
+				}
+				textarea {
+					width: 100%;
+					border: none;
+					border-bottom: 1px solid #555;
+					margin-right: 20px;
+					outline: none;
+					background: none;
+					resize: none;
+				}
+			}
+
+			.btnSet {
+				width: 100%;
+
+				display: flex;
+				gap: 10px;
+				justify-content: space-between;
+				margin-bottom: 20px;
+
+				input {
+					width: 100px;
+					display: block;
+					height: 40px;
+					background: #444;
+					border: 1px solid #666;
+					font: 1rem/40px 'arial';
+					color: #ffffff;
+					text-align: center;
+				}
+			}
+
+			.texBox {
+				margin-top: 20px;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+.mobile {
+	.Contact {
+		.content {
+			width: 100%;
+			h1 {
+				text-align: center;
+				color: rgb(0, 0, 0);
+				font: 150px/1.4 'Nanum Myeongjo';
+			}
+		}
+		figure {
+			background: orange;
+		}
+
+		.conBox {
+			width: 70vw;
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0px auto;
+			position: relative;
+			background: linear-gradient(50deg, rgb(231, 231, 231), rgb(184, 184, 184));
+			margin-bottom: 20px;
+
+			h2 {
+				width: 30%;
+				color: #2d2d2d;
+				margin-top: 10px;
+				margin-bottom: 5px;
+				font: 40px/1 'arial';
+				padding: 10px;
+			}
+			p {
+				width: 100%;
+				margin-bottom: 30px;
+				font: 20px/1 'arial';
+				color: #686868;
+				padding: 10px;
+				margin-top: -20px;
+			}
+			span {
+				width: 70%;
+				margin-bottom: 50px;
+				font-size: 12px;
+				font-family: 'arial';
+				padding: 10px;
+			}
+		}
+
+		.sun {
+			width: 70vw;
+			border-bottom: 1px solid black;
+			margin: 0 auto;
+		}
+
+		#Box {
+			width: 70%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 0 auto;
+
+			.butBox {
+				width: 60%;
+				margin: 0 auto;
+
+				margin-bottom: 30px;
+				display: flex;
+				flex-wrap: wrap;
+
+				button {
+					width: 20%;
+					display: block;
+					height: 150px;
+					background: #444;
+					border: 1px solid #666;
+					font: 1rem/40px 'arial';
+					color: #ffffff;
+					text-align: center;
+					margin-top: 30px;
+					margin-right: 10px;
+				}
+			}
+
+			ul {
+				width: 40%;
+				margin-top: 30px;
+				margin-bottom: 40px;
+				display: flex;
+				gap: 20px;
+				justify-content: right;
+
+				li {
+					width: 150px;
+					height: 150px;
+					cursor: pointer;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background: #444;
+					border: 1px solid #666;
+					font: 1rem/40px 'arial';
+					color: #ffffff;
+					text-align: center;
+				}
+
+				li.on {
+					color: rgb(178, 178, 178);
+				}
+			}
+		}
+
+		.container {
+			width: 100%;
+			height: 60vh;
+			background: #111;
+			position: relative;
+			margin-bottom: 50px;
+		}
+		.map,
+		.view {
+			width: 100%;
+			height: 60vh;
+			background: #111;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: 1;
+
+			&.on {
+				opacity: 1;
+				z-index: 2;
+			}
+		}
+
+		#mailbox {
+			width: 70vw;
+			border-top: 1px solid rgb(137, 137, 137);
+			border-bottom: 1px solid rgb(137, 137, 137);
+			margin: 0 auto;
+			.upper {
+				width: 50%;
+				display: flex;
+				margin-bottom: 50px;
+				display: flex;
+				flex-wrap: wrap;
+
+				label {
+					font: bold 1rem/1 'arial';
+					color: #555;
+					margin-right: 10px;
+					position: relative;
+					top: 10px;
+				}
+				input[type='text'],
+				input[type='email'] {
+					border: none;
+					padding: 10px 20px;
+					border-bottom: 1px solid #555;
+					margin-right: 50px;
+					outline: none;
+					background: none;
+				}
+			}
+
+			.lower {
+				width: 100%;
+				margin-bottom: 10px;
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: 20px;
+				label {
+					font: bold 1rem/1 'arial';
+					color: #555;
+					margin-right: 10px;
+					position: relative;
+					top: -10px;
+				}
+				textarea {
+					width: 100%;
+					border: none;
+					border-bottom: 1px solid #555;
+					margin-right: 20px;
+					outline: none;
+					background: none;
+					resize: none;
+				}
+			}
+
+			.btnSet {
+				width: 100%;
+
+				display: flex;
+				gap: 10px;
+				justify-content: space-between;
+				margin-bottom: 20px;
+
+				input {
+					width: 100px;
+					display: block;
+					height: 40px;
+					background: #444;
+					border: 1px solid #666;
+					font: 1rem/40px 'arial';
+					color: #ffffff;
+					text-align: center;
+				}
+			}
+
+			.texBox {
+				margin-top: 20px;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
