@@ -140,3 +140,33 @@
 		}
 	}
 }
+
+.labtop {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 33.333%;
+			}
+		}
+	}
+}
+
+.tablet {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 50%;
+			}
+		}
+	}
+}
+
+.mobile {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 100%;
+			}
+		}
+	}
+}
