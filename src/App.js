@@ -17,7 +17,7 @@ export default function App({ isMain }) {
 	useMedia();
 
 	return (
-		<main className={useMedia({ tablet: 700 })}>
+		<main className={useMedia({})}>
 			<Switch>
 				<Route exact path='/'>
 					<Header isMain={true} />

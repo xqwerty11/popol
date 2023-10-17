@@ -36,10 +36,19 @@
 	}
 }
 
+.tablet,
 .mobile {
 	.header {
 		ul {
 			display: none;
+		}
+	}
+}
+
+.laptop {
+	.header {
+		.bars {
+			opacity: 0;
 		}
 	}
 }
