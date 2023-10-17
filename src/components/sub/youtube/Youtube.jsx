@@ -1,6 +1,6 @@
 import Layout from '../../common/layout/Layout';
 import { Link } from 'react-router-dom';
-import { UseSelector, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import './Youtube.scss';
 
