@@ -22,6 +22,10 @@
 			}
 		}
 	}
+
+	.bars {
+		display: none;
+	}
 }
 
 .header.main {
@@ -42,13 +46,8 @@
 		ul {
 			display: none;
 		}
-	}
-}
-
-.laptop {
-	.header {
 		.bars {
-			opacity: 0;
+			display: block;
 		}
 	}
 }
