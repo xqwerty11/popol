@@ -15,12 +15,12 @@ import { useMedia } from './hooks/useMedia';
 import { useEffect } from 'react';
 import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchFlickr } from './redux/flickrSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/Menu';
 
 export default function App({ isMain }) {
 	const dispatch = useDispatch();
-	const { isOpen } = useSelector((store) => store.menu);
+
 	useEffect(() => {
 		dispatch(fetchYoutube());
 		dispatch(fetchFlickr({ type: 'user', id: '199282981@N03' }));
@@ -44,7 +44,7 @@ export default function App({ isMain }) {
 			<Route path='/contact' component={Contact} />
 			<Route path='/detail/:id' component={Detail} />
 			<Route path='/community' component={Community} />
-			{isOpen && <Menu />}
+			<Menu />
 			<Footer />
 		</main>
 	);
