@@ -10,7 +10,6 @@ import { open } from '../../../redux/modalSlice';
 export default function Gallery() {
 	const dispatch = useDispatch();
 	const Pics = useSelector((store) => store.flickr.data);
-	const IsModal = useSelector((store) => store.modal.isOpen);
 	const [IsUser, setIsUser] = useState(true);
 	const [ActiveURL, setActiveURL] = useState('');
 
@@ -146,12 +145,9 @@ export default function Gallery() {
 					</Masonry>
 				</div>
 			</Layout>
-
-			{IsModal && (
-				<Modal>
-					<img src={ActiveURL} alt='img' />
-				</Modal>
-			)}
+			<Modal>
+				<img src={ActiveURL} alt='img' />
+			</Modal>
 		</>
 	);
 }

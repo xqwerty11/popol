@@ -23,7 +23,6 @@ export default function Community() {
 
 	const [Posts, setPosts] = useState(getLocalData());
 	const [Allowed, setAllowed] = useState(true);
-	console.log(Posts);
 
 	const resetForm = () => {
 		refInput.current.value = '';

@@ -1,21 +1,30 @@
 import './Modal.scss';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { close } from '../../../redux/modalSlice';
+import { AnimatePresence, motion } from 'framer-motion';
 function Modal({ children }) {
+	const { isOpen } = useSelector((store) => store.modal);
+
 	const dispatch = useDispatch();
 	useEffect(() => {
-		document.body.style.overflow = 'hidden';
-
-		return () => {
-			document.body.style.overflow = 'auto';
-		};
-	}, []);
+		isOpen ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
+	}, [isOpen]);
 	return (
-		<aside className='modal'>
-			<div className='con'>{children}</div>
-			<span onClick={() => dispatch(close())}>close</span>
-		</aside>
+		<AnimatePresence>
+			{isOpen && (
+				<motion.aside
+					className='modal'
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.2 }}
+				>
+					<div className='con'>{children}</div>
+					<span onClick={() => dispatch(close())}>close</span>
+				</motion.aside>
+			)}
+		</AnimatePresence>
 	);
 }
 export default Modal;
