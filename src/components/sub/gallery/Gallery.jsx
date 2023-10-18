@@ -1,11 +1,15 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import Layout from '../../common/layout/Layout';
 import Modal from '../../common/modal/Modal';
 import './Gallery.scss';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
+import { fetchFlickr } from '../../../redux/flickrSlice';
 
 export default function Gallery() {
-	const [Pics, setPics] = useState([]);
+	const dispatch = useDispatch();
+	const Pics = useSelector((store) => store.flickr.data);
 	const [IsUser, setIsUser] = useState(true);
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsModal, setIsModal] = useState(false);
@@ -16,34 +20,6 @@ export default function Gallery() {
 	const my_id = '199282981@N03';
 
 	//처음 마운트 데이터 호출 함수
-	const fetchData = async (opt) => {
-		let url = '';
-		const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
-		const method_interest = 'flickr.interestingness.getList';
-		const method_user = 'flickr.people.getPhotos';
-		const method_search = 'flickr.photos.search';
-		const num = 50;
-
-		if (opt.type === 'interest') {
-			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
-		}
-
-		if (opt.type === 'user') {
-			url = `https://www.flickr.com/services/rest/?method=${method_user}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&user_id=${opt.id}`;
-		}
-
-		if (opt.type === 'search') {
-			url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&tags=${opt.tags}`;
-		}
-
-		const data = await fetch(url);
-		const json = await data.json();
-		if (json.photos.photo.length === 0) {
-			return alert('해당 검색어의 결과값이 없습니다');
-		}
-
-		setPics(json.photos.photo);
-	};
 
 	//submit이벤트 발생시 실행할 함수
 	const handleSubmit = (e) => {
@@ -57,7 +33,7 @@ export default function Gallery() {
 			return alert('검색어를 입력하세요.');
 		}
 
-		fetchData({ type: 'search', tags: refInput.current.value });
+		dispatch(fetchFlickr({ type: 'search', tags: refInput.current.value }));
 		refInput.current.value = '';
 	};
 
@@ -71,7 +47,7 @@ export default function Gallery() {
 
 		e.target.classList.add('on');
 
-		fetchData({ type: 'user', id: my_id });
+		dispatch(fetchFlickr({ type: 'user', id: my_id }));
 	};
 
 	//Interest Gallery 클릭 이벤트 발생시 실행할 함수
@@ -83,20 +59,16 @@ export default function Gallery() {
 		btns.forEach((btn) => btn.classList.remove('on'));
 		e.target.classList.add('on');
 
-		fetchData({ type: 'interest' });
+		dispatch(fetchFlickr({ type: 'interest' }));
 	};
 
 	//profile 아이디 클릭시 실행할 함수
 	const handleClickProfile = (e) => {
 		if (IsUser) return;
 
-		fetchData({ type: 'user', id: e.target.innerText });
+		dispatch(fetchFlickr({ type: 'user', id: e.target.innerText }));
 		setIsUser(true);
 	};
-
-	useEffect(() => {
-		fetchData({ type: 'user', id: my_id });
-	}, []);
 
 	return (
 		<>
