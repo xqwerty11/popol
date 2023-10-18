@@ -52,5 +52,4 @@ ReactDOM.render(
 	3.react프로젝트에서 public,src 폴더를 통해서 어떻게 어떤식으로 빌드가 되면서 화면 렌더링
 	- index.js를 구동파일로 해서 App.js에 모든 컴포넌트를 불러온다음에 내부족으로 내장되어있는 webpack이라는 번들러에 의해서 하나의 js파일로 번들링되고 번들링된 파일이 index.js에 의해서 public폴더 안쪽에 있는 index.html에 합치면서 최종 빌드가 완료됨
 	- 그럼 브라우저에서는 빌드완료된 index.html을 읽어서 화면 렌더링
-	
 */
