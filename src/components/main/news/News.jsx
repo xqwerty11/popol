@@ -1,13 +1,23 @@
 import './News.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function News() {
+	const dummyDate = [
+		{ title: 'title', content: 'Here comes content description in detail1.', data: new Date() },
+		{ title: 'title', content: 'Here comes content description in detail1.', data: new Date() },
+		{ title: 'title', content: 'Here comes content description in detail1.', data: new Date() },
+		{ title: 'title', content: 'Here comes content description in detail1.', data: new Date() },
+	];
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
 		if (data) return JSON.parse(data);
-		else return [];
+		else return dummyDate;
 	};
-	const [Post] = useState(getLocalData());
+	const [Post, setPost] = useState(getLocalData());
+
+	useEffect(() => {
+		setPost(getLocalData());
+	}, []);
 	return (
 		<section className='news'>
 			<h2>News</h2>
