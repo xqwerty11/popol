@@ -48,7 +48,6 @@ export default function Gallery() {
 	//submit이벤트 발생시 실행할 함수
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		setIsUser(false);
 
 		const btns = refBtnSet.current.querySelectorAll('button');
