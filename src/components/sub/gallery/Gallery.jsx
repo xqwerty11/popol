@@ -19,7 +19,6 @@ export default function Gallery() {
 
 	const my_id = '199282981@N03';
 
-	//submit이벤트 발생시 실행할 함수
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setIsUser(false);
@@ -35,7 +34,6 @@ export default function Gallery() {
 		refInput.current.value = '';
 	};
 
-	//myGallery 클릭 이벤트 발생시 실행할 함수
 	const handleClickMyGallery = (e) => {
 		setIsUser(true);
 		if (e.target.classList.contains('on')) return;
@@ -48,7 +46,6 @@ export default function Gallery() {
 		dispatch(fetchFlickr({ type: 'user', id: my_id }));
 	};
 
-	//Interest Gallery 클릭 이벤트 발생시 실행할 함수
 	const handleClickInterest = (e) => {
 		setIsUser(false);
 		if (e.target.classList.contains('on')) return;
@@ -60,7 +57,6 @@ export default function Gallery() {
 		dispatch(fetchFlickr({ type: 'interest' }));
 	};
 
-	//profile 아이디 클릭시 실행할 함수
 	const handleClickProfile = (e) => {
 		if (IsUser) return;
 

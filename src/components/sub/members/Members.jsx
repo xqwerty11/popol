@@ -52,8 +52,7 @@ export default function Members() {
 		inputs.forEach((input) => input.checked && (isChecked = true));
 		setVal({ ...Val, [name]: isChecked });
 	};
-	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
-	//만약 인증에러가 발생하면 해당 name값으로 에러문구를 생성해서 반환하는 함수
+
 	const check = (value) => {
 		const num = /[0-9]/; //0~9까지의 모든 값을 정규표현식으로 범위지정
 		const txt = /[a-zA-Z]/; // 대소문자 구분없이 모든 문자 범위지정
@@ -116,9 +115,6 @@ export default function Members() {
 		return errs;
 	};
 
-	//전송이벤트 발생시 state에 있는 인풋값들을 check함수에 전달해서 호출
-	//만약 check함수가 에러객체를 하나도 내보내지 않으면 인증성공
-	//하나라도 에러객체가 전달되면 인증실패처리하면서 name값과 매칭이 되는 input요소 아래쪽에 에러메세지 출력
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -155,7 +151,6 @@ export default function Members() {
 										type='text'
 										id='userid'
 										name='userid'
-										//onChange가 발생할때마다 실시간으로 변경되고 있는 state의 value값을 출력
 										value={Val.userid}
 										onChange={handleChange}
 										placeholder='아이디를 입력하세요'
