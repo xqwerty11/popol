@@ -33,7 +33,9 @@ function News() {
 						);
 				})}
 			</div>
-			<div className='imgBox'></div>
+			<div className='imgBox'>
+				<img src='./img/aaa.jpg' alt='' />
+			</div>
 		</section>
 	);
 }
