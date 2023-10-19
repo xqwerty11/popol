@@ -1,12 +1,14 @@
 .news {
 	width: 100%;
 	height: 100vh;
-	background: lightgreen;
 	padding: 10vw;
+
 	h2 {
 		font: bold 40px/1 'arial';
 		margin-bottom: 50px;
+		position: relative;
 	}
+
 	.postWrap {
 		width: 100%;
 		display: flex;

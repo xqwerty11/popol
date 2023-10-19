@@ -8,53 +8,62 @@ function Visual() {
 	const { data } = useSelector((store) => store.youtube);
 	const [Index, setIndex] = useState(0);
 	return (
-		<section className='visual'>
-			<div className='titBox'>
-				<ul>
-					{data.map((tit, idx) => {
+		<>
+			<article className='visualBox'>
+				<figure>
+					<img src='img/figure.jpg' alt='' />
+				</figure>
+				<p>Luxurious</p>
+			</article>
+
+			<section className='visual myScroll'>
+				<div className='titBox'>
+					<ul>
+						{data.map((tit, idx) => {
+							if (idx >= 5) return null;
+							return (
+								<li key={idx} className={idx === Index ? 'on' : ''}>
+									<h3>{tit.snippet.title}</h3>
+
+									<button>View Deatil</button>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+				<Swiper
+					slidesPerView={1}
+					spaceBetween={0}
+					centeredSlides={true}
+					loop={true}
+					//swiper loop 기능을 적용하는 순간 실제 연결되어 있는 패널갯수보다 동적으로 패널이 생성되면서 일반적인 방법으로는 활성화패널의 순서값을 구할 수 없기 때문에 아래와 같은 방법으로 순서값을 구함
+					onSlideChange={(el) => setIndex(el.realIndex)}
+					breakpoints={{
+						//1000px보다 브라우저폭이 커졌을때
+						1000: {
+							slidesPerView: 2,
+							spaceBetween: 50,
+						},
+						1400: {
+							slidesPerView: 3,
+							spaceBetween: 50,
+						},
+					}}
+				>
+					{data.map((vid, idx) => {
 						if (idx >= 5) return null;
 						return (
-							<li key={idx} className={idx === Index ? 'on' : ''}>
-								<h3>{tit.snippet.title}</h3>
-
-								<button>View Deatil</button>
-							</li>
+							<SwiperSlide key={idx}>
+								<div className='pic'>
+									<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
+									<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
+								</div>
+							</SwiperSlide>
 						);
 					})}
-				</ul>
-			</div>
-			<Swiper
-				slidesPerView={1}
-				spaceBetween={0}
-				centeredSlides={true}
-				loop={true}
-				//swiper loop 기능을 적용하는 순간 실제 연결되어 있는 패널갯수보다 동적으로 패널이 생성되면서 일반적인 방법으로는 활성화패널의 순서값을 구할 수 없기 때문에 아래와 같은 방법으로 순서값을 구함
-				onSlideChange={(el) => setIndex(el.realIndex)}
-				breakpoints={{
-					//1000px보다 브라우저폭이 커졌을때
-					1000: {
-						slidesPerView: 2,
-						spaceBetween: 50,
-					},
-					1400: {
-						slidesPerView: 3,
-						spaceBetween: 50,
-					},
-				}}
-			>
-				{data.map((vid, idx) => {
-					if (idx >= 5) return null;
-					return (
-						<SwiperSlide key={idx}>
-							<div className='pic'>
-								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
-								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
-							</div>
-						</SwiperSlide>
-					);
-				})}
-			</Swiper>
-		</section>
+				</Swiper>
+			</section>
+		</>
 	);
 }
 

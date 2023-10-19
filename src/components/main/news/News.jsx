@@ -19,8 +19,8 @@ function News() {
 		setPost(getLocalData());
 	}, []);
 	return (
-		<section className='news'>
-			<h2>News</h2>
+		<section className='news myScroll'>
+			<h2>News release </h2>
 			<div className='postWrap'>
 				{Post.map((el, idx) => {
 					if (idx >= 3) return null;
