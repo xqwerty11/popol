@@ -5,11 +5,28 @@
 	justify-content: space-between;
 
 	.titBox {
-		width: 30%;
+		width: 40%;
 		height: 100%;
-		border: 1px solid;
+
 		transform: translateX(15vw);
 		padding: 10vw 0px;
+
+		ul {
+			li {
+				position: absolute;
+				top: 20%;
+				left: 0;
+				font-size: 4rem;
+				opacity: 0;
+				transform: translateX(-100px) scale(2);
+				transition: opacity 1s, transform 1s;
+
+				&.on {
+					opacity: 1;
+					transform: translateX(0px);
+				}
+			}
+		}
 	}
 
 	.swiper {
