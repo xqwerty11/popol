@@ -20,7 +20,7 @@ function News() {
 	}, []);
 	return (
 		<section className='news myScroll'>
-			<h2>News release </h2>
+			<h2 className='release'>News release </h2>
 			<div className='postWrap'>
 				{Post.map((el, idx) => {
 					if (idx >= 3) return null;
