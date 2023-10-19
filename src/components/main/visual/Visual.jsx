@@ -14,6 +14,7 @@ function Visual() {
 						<SwiperSlide key={idx}>
 							<div className='pic'>
 								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
+								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
 							</div>
 						</SwiperSlide>
 					);
