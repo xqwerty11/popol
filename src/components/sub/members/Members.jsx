@@ -131,9 +131,7 @@ export default function Members() {
 				<h2>Lorem, ipsum dolor.</h2>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum.</p>
 
-				<div>
-					<h2>대충회원가입에오신걸환영한다는글</h2>
-				</div>
+				<div></div>
 			</section>
 
 			<form onSubmit={handleSubmit}>
