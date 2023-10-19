@@ -12,12 +12,8 @@ function Visual() {
 					if (idx >= 5) return null;
 					return (
 						<SwiperSlide key={idx}>
-							<div className='inner'>
-								<div className='pic'>
-									<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
-								</div>
-								<h2>{vid.snippet.title}</h2>
-								<button>VIEW</button>
+							<div className='pic'>
+								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
 							</div>
 						</SwiperSlide>
 					);
