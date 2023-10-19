@@ -1,13 +1,15 @@
 .visual {
 	width: 100%;
 	height: calc(100vh - 90px);
-	text-align: right;
 	display: flex;
 	justify-content: space-between;
 
 	.titBox {
-		width: 35%;
+		width: 30%;
+		height: 100%;
 		border: 1px solid;
+		transform: translateX(15vw);
+		padding: 10vw 0px;
 	}
 
 	.swiper {
@@ -22,7 +24,7 @@
 
 			.pic {
 				width: 100%;
-				height: 100%;
+				height: 90%;
 				opacity: 0.4;
 				transform: scale(0.5);
 				transition: opacity 0.5s, transform 0.5s;
