@@ -2,12 +2,19 @@
 	width: 100%;
 	height: calc(100vh - 90px);
 	text-align: right;
+	display: flex;
+	justify-content: space-between;
+
+	.titBox {
+		width: 35%;
+		border: 1px solid;
+	}
 
 	.swiper {
 		display: inline-block;
 		width: 75%;
 		height: 100%;
-		padding: 8vw 0px;
+		padding: 10vw 0px;
 
 		.swiper-slide {
 			width: 100%;

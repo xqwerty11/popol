@@ -7,6 +7,14 @@ function Visual() {
 	const { data } = useSelector((store) => store.youtube);
 	return (
 		<section className='visual'>
+			<div className='titBox'>
+				<ul>
+					{data.map((tit, idx) => {
+						if (idx >= 5) return null;
+						return <li key={idx}>{tit.snippet.title}</li>;
+					})}
+				</ul>
+			</div>
 			<Swiper slidesPerView={3} spaceBetween={50} centeredSlides={true} loop={true}>
 				{data.map((vid, idx) => {
 					if (idx >= 5) return null;
