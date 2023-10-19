@@ -1,17 +1,20 @@
 import Anime from '../../../asset/anime';
 import './Btns.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function Btns() {
 	//ul요소를 담을 참조객체 생성
 	const refBtns = useRef(null);
 	//세로위치값이 배열로 담길 참조객체 생성
 	let pos = useRef([]);
+	const [Num, setNum] = useState(0);
+
 	//컴포넌트 마운트시 myScroll클래스의 모든 섹션의 세로위치값을 배열에 저장하는 함수
 	const getPos = () => {
 		pos.current = [];
 		const secs = document.body.querySelectorAll('.myScroll');
 		for (let sec of secs) pos.current.push(sec.offsetTop);
+		setNum(pos.current.length);
 	};
 
 	//브라우저 스크롤시 버튼을 반복돌면서 스크롤리 특정 섹션영역을 넘어가면 해당 순번에 버튼 활성화 함수
@@ -39,34 +42,22 @@ function Btns() {
 	}, []);
 	return (
 		<ul className='scroll_navi' ref={refBtns}>
-			<li
-				className='on'
-				onClick={() => {
-					new Anime(window, {
-						prop: 'scroll',
-						value: pos.current[0],
-						duration: 500,
-					});
-				}}
-			></li>
-			<li
-				onClick={() => {
-					new Anime(window, {
-						prop: 'scroll',
-						value: pos.current[1],
-						duration: 500,
-					});
-				}}
-			></li>
-			<li
-				onClick={() => {
-					new Anime(window, {
-						prop: 'scroll',
-						value: pos.current[2],
-						duration: 500,
-					});
-				}}
-			></li>
+			{Array(Num)
+				.fill()
+				.map((el, idx) => {
+					return (
+						<li
+							key={idx}
+							onClick={() => {
+								new Anime(window, {
+									prop: 'scroll',
+									value: pos.current[idx],
+									duration: 500,
+								});
+							}}
+						></li>
+					);
+				})}
 		</ul>
 	);
 }
