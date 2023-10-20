@@ -10,22 +10,14 @@ import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
 import Main from './components/main/mainWrap/Main';
 import Footer from './components/common/footer/Footer';
-
 import { useMedia } from './hooks/useMedia';
-import { useEffect } from 'react';
-import { fetchFlickr } from './redux/flickrSlice';
-import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/Menu';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 export default function App({ isMain }) {
-	const dispatch = useDispatch();
 	const queryClient = new QueryClient();
 
-	useEffect(() => {
-		dispatch(fetchFlickr({ type: 'user', id: '199282981@N03' }));
-	}, []);
 	useMedia();
 	return (
 		<QueryClientProvider client={queryClient}>

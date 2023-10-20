@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../common/modal/Modal';
 import Layout from '../../common/layout/Layout';
 import './Gallery.scss';
@@ -6,16 +5,19 @@ import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import { fetchFlickr } from '../../../redux/flickrSlice';
 import { open } from '../../../redux/modalSlice';
+import { useFlickrQuery } from '../../../hooks/useflickr';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 export default function Gallery() {
 	const dispatch = useDispatch();
-	const Pics = useSelector((store) => store.flickr.data);
 	const [IsUser, setIsUser] = useState(true);
 	const [ActiveURL, setActiveURL] = useState('');
-
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
 	const my_id = '199282981@N03';
+	const [Opt, setOpt] = useState({ type: 'user', id: my_id });
+	const { data: Pics, isSuccess } = useFlickrQuery(Opt);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -28,7 +30,7 @@ export default function Gallery() {
 			return alert('검색어를 입력하세요.');
 		}
 
-		dispatch(fetchFlickr({ type: 'search', tags: refInput.current.value }));
+		setOpt(fetchFlickr({ type: 'search', tags: refInput.current.value }));
 		refInput.current.value = '';
 	};
 
@@ -41,7 +43,7 @@ export default function Gallery() {
 
 		e.target.classList.add('on');
 
-		dispatch(fetchFlickr({ type: 'user', id: my_id }));
+		setOpt({ type: 'user', id: my_id });
 	};
 
 	const handleClickInterest = (e) => {
@@ -52,13 +54,13 @@ export default function Gallery() {
 		btns.forEach((btn) => btn.classList.remove('on'));
 		e.target.classList.add('on');
 
-		dispatch(fetchFlickr({ type: 'interest' }));
+		setOpt({ type: 'interest' });
 	};
 
 	const handleClickProfile = (e) => {
 		if (IsUser) return;
 
-		dispatch(fetchFlickr({ type: 'user', id: e.target.innerText }));
+		setOpt({ type: 'user', id: e.target.innerText });
 		setIsUser(true);
 	};
 
@@ -110,7 +112,7 @@ export default function Gallery() {
 						updateOnEachImageLoad={false}
 					>
 						{/* 해당 데이터가 어떤이유에서건 없을때 해당 객체안의 property를 호출할때 런타임 에러가 뜨는 경우이므로 배열값 자체가 없으면 렌더링을 안해서 property 오류해결 */}
-						{Pics.length !== 0 &&
+						{isSuccess &&
 							Pics.map((data, idx) => {
 								return (
 									<article key={idx}>

@@ -1,22 +1,23 @@
 import './Info.scss';
-import { useSelector } from 'react-redux';
+import { useFlickrQuery } from '../../../hooks/useflickr';
 function Info() {
-	const { data } = useSelector((store) => store.flickr);
+	const { data, isSuccess } = useFlickrQuery({ type: 'user', id: '199282981@N03' });
 	return (
 		<section className='info myScroll'>
 			<h2>Welcome to The Art</h2>
 			<div className='wrap'>
-				{data.map((pic, idx) => {
-					if (idx >= 6) return null;
-					return (
-						<article key={idx}>
-							<img
-								src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
-								alt={pic.title}
-							/>
-						</article>
-					);
-				})}
+				{isSuccess &&
+					data.map((pic, idx) => {
+						if (idx >= 6) return null;
+						return (
+							<article key={idx}>
+								<img
+									src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
+									alt={pic.title}
+								/>
+							</article>
+						);
+					})}
 			</div>
 		</section>
 	);
