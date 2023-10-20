@@ -125,6 +125,13 @@ export default function Members() {
 		}
 	};
 
+	const showCheck = () => {
+		setErrs(check(Val));
+	};
+
+	useEffect(() => {
+		showCheck();
+	}, [Val]);
 	return (
 		<Layout title={'SayHello'}>
 			<section className='conBox'>

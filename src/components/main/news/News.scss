@@ -1,6 +1,5 @@
 .news {
 	width: 100%;
-	height: 100vh;
 	padding: 10vw;
 	display: flex;
 	flex-wrap: wrap;
@@ -30,7 +29,7 @@
 
 	.postWrap {
 		width: 80%;
-		height: 100%;
+		height: 600px;
 		display: flex;
 		flex-wrap: wrap;
 		article {
@@ -55,7 +54,8 @@
 
 	.imgBox {
 		width: 20%;
-		height: 100%;
+		height: 600px;
+		margin-bottom: 40px;
 		img {
 			width: 100%;
 			height: 100%;
@@ -66,10 +66,25 @@
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
+		.txtBox {
+			width: 50%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: right;
+			h2 {
+				width: 100%;
+				text-align: right;
+			}
 
-		article {
-			width: 100px;
-			height: 100px;
+			p {
+				width: 60%;
+				display: flex;
+			}
+		}
+
+		.imgBox2 {
+			width: 80%;
+			height: 500px;
 			img {
 				width: 100%;
 				height: 100%;
