@@ -17,9 +17,12 @@ import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchFlickr } from './redux/flickrSlice';
 import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/Menu';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 export default function App({ isMain }) {
 	const dispatch = useDispatch();
+	const queryClient = new QueryClient();
 
 	useEffect(() => {
 		dispatch(fetchYoutube());
@@ -27,25 +30,28 @@ export default function App({ isMain }) {
 	}, []);
 	useMedia();
 	return (
-		<main className={useMedia({})}>
-			<Switch>
-				<Route exact path='/'>
-					<Header isMain={true} />
-					<Main />
-				</Route>
-				<Route path='/'>
-					<Header isMain={false} />
-				</Route>
-			</Switch>
-			<Route path='/department' component={Department} />
-			<Route path='/gallery' component={Gallery} />
-			<Route path='/youtube' component={Youtube} />
-			<Route path='/members' component={Members} />
-			<Route path='/contact' component={Contact} />
-			<Route path='/detail/:id' component={Detail} />
-			<Route path='/community' component={Community} />
-			<Menu />
-			<Footer />
-		</main>
+		<QueryClientProvider client={queryClient}>
+			<main className={useMedia({})}>
+				<Switch>
+					<Route exact path='/'>
+						<Header isMain={true} />
+						<Main />
+					</Route>
+					<Route path='/'>
+						<Header isMain={false} />
+					</Route>
+				</Switch>
+				<Route path='/department' component={Department} />
+				<Route path='/gallery' component={Gallery} />
+				<Route path='/youtube' component={Youtube} />
+				<Route path='/members' component={Members} />
+				<Route path='/contact' component={Contact} />
+				<Route path='/detail/:id' component={Detail} />
+				<Route path='/community' component={Community} />
+				<Menu />
+				<Footer />
+			</main>
+			<ReactQueryDevtools />
+		</QueryClientProvider>
 	);
 }

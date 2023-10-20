@@ -44,19 +44,9 @@ function Pics() {
 		//Pics영역을 스크롤이 벗어나면 다시 absolute속성으로 변경해서 다시 위쪽으로 움직이도록 배치
 		<section className='myScroll pics' ref={frame}>
 			<article ref={box}>
-				<div className='conBox'>
-					<h2>Lorem, ipsum dolor.</h2>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quo corrupti velit error
-						officiis quasi amet delectus eaque corporis eligendi quis quod, sed possimus tenetur id
-						dolor! Distinctio maxime est esse in nostrum repellat! Blanditiis delectus, placeat
-						iusto iure qui veniam commodi ipsa, deleniti assumenda facilis illo libero hic incidunt.
-					</p>
-					{/* <article>
-						<img src='./img/conBox.jpg' alt='' />
-					</article> */}
+				<div>
+					<h2>Hello</h2>
 				</div>
-
 				<div>
 					<h2>Hello</h2>
 				</div>
