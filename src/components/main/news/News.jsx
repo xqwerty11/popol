@@ -88,7 +88,7 @@ function News() {
 					</p>
 				</article>
 				<article className='imgBox2'>
-					<img src='./img/conBox.jpg' alt='' />
+					<img src='./img/imgBox.jpg' alt='' />
 				</article>
 			</div>
 		</section>

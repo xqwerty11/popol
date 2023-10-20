@@ -9,8 +9,8 @@ export default function Members() {
 		pwd1: '',
 		pwd2: '',
 		email: '',
-		gender: false,
-		interests: false,
+		gender: '',
+		interests: [],
 		edu: '',
 		comments: '',
 	};
@@ -43,17 +43,14 @@ export default function Members() {
 		setVal({ ...Val, [name]: value });
 	};
 
-	const handleRadio = (e) => {
-		const { name, checked } = e.target;
-		setVal({ ...Val, [name]: checked });
-	};
-
 	const handleCheck = (e) => {
 		const { name } = e.target;
-		let isChecked = false;
+		let checkArr = [];
 		const inputs = e.target.parentElement.querySelectorAll('input');
-		inputs.forEach((input) => input.checked && (isChecked = true));
-		setVal({ ...Val, [name]: isChecked });
+		//checkbox요소를 반복돌면서 해당 요소에 체크되어 있다면 해당 value값을 배열에 담아주고
+		//배열을 state에 담아줌
+		inputs.forEach((input) => input.checked && checkArr.push(input.value));
+		setVal({ ...Val, [name]: checkArr });
 	};
 
 	const check = (value) => {
@@ -102,7 +99,7 @@ export default function Members() {
 		}
 
 		//관심사인증
-		if (!value.interests) {
+		if (value.interests.length === 0) {
 			errs.interests = '관심사를 하나이상 체크해주세요';
 		}
 		//학력인증
@@ -226,10 +223,22 @@ export default function Members() {
 								<th>gender</th>
 								<td ref={refRadioGroup}>
 									<label htmlFor='female'>female</label>
-									<input type='radio' name='gender' id='female' onChange={handleRadio} />
+									<input
+										type='radio'
+										name='gender'
+										id='female'
+										onChange={handleChange}
+										defaultValue='female'
+									/>
 
 									<label htmlFor='male'>male</label>
-									<input type='radio' name='gender' id='male' onChange={handleRadio} />
+									<input
+										type='radio'
+										name='gender'
+										id='male'
+										onChange={handleChange}
+										defaultValue='male'
+									/>
 
 									{Errs.gender && <p>{Errs.gender}</p>}
 								</td>
@@ -239,13 +248,31 @@ export default function Members() {
 								<th>interests</th>
 								<td ref={refCheckGroup}>
 									<label htmlFor='sports'>sports</label>
-									<input type='checkbox' id='sports' name='interests' onChange={handleCheck} />
+									<input
+										type='checkbox'
+										id='sports'
+										name='interests'
+										onChange={handleCheck}
+										defaultValue='sporth'
+									/>
 
 									<label htmlFor='game'>game</label>
-									<input type='checkbox' id='game' name='interests' onChange={handleCheck} />
+									<input
+										type='checkbox'
+										id='game'
+										name='interests'
+										onChange={handleCheck}
+										defaultValue='game'
+									/>
 
 									<label htmlFor='music'>music</label>
-									<input type='checkbox' id='music' name='interests' onChange={handleCheck} />
+									<input
+										type='checkbox'
+										id='music'
+										name='interests'
+										onChange={handleCheck}
+										defaultValue='music'
+									/>
 									{Errs.interests && <p>{Errs.interests}</p>}
 								</td>
 							</tr>
