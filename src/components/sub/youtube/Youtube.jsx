@@ -5,7 +5,7 @@ import './Youtube.scss';
 import { useYoutubeQuery } from '../../../hooks/useYoutube';
 
 export default function Youtube() {
-	const { data, isSuccess } = useYoutubeQuery();
+	const { data: Youtube, isSuccess } = useYoutubeQuery();
 	return (
 		<>
 			<Layout title={'PLAYLIST'}>
@@ -18,7 +18,7 @@ export default function Youtube() {
 				</div>
 
 				{isSuccess &&
-					data.map((data, idx) => {
+					Youtube.map((data, idx) => {
 						let tit = data.snippet.title;
 						let desc = data.snippet.description;
 						let date = data.snippet.publishedAt;
