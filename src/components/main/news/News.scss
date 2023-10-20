@@ -62,4 +62,19 @@
 			object-fit: cover;
 		}
 	}
+	.conBox {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+
+		article {
+			width: 100px;
+			height: 100px;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
 }
