@@ -64,6 +64,33 @@ function News() {
 					</p>
 				</article>
 			</div>
+
+			<div className='conBox2'>
+				<article className='txtBox'>
+					<h2>Lorem, ipsum dolor.</h2>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quo corrupti velit error
+						officiis quasi amet delectus eaque corporis eligendi quis quod, sed possimus tenetur id
+						dolor! Distinctio maxime est esse in nostrum repellat! Blanditiis delectus, placeat
+						iusto iure qui veniam commodi ipsa, deleniti assumenda facilis illo libero hic incidunt.
+						<br />
+						<br />
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quo corrupti velit error
+						officiis quasi amet delectus eaque corporis eligendi quis quod, sed possimus tenetur id
+						dolor! Distinctio maxime est esse in nostrum repellat! Blanditiis delectus, placeat
+						iusto iure qui veniam commodi ipsa, deleniti assumenda facilis illo libero hic incidunt.
+						<br />
+						<br /> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quo corrupti velit
+						error officiis quasi amet delectus eaque corporis eligendi quis quod, sed possimus
+						tenetur id dolor! Distinctio maxime est esse in nostrum repellat! Blanditiis delectus,
+						placeat iusto iure qui veniam commodi ipsa, deleniti assumenda facilis illo libero hic
+						incidunt.
+					</p>
+				</article>
+				<article className='imgBox2'>
+					<img src='./img/conBox.jpg' alt='' />
+				</article>
+			</div>
 		</section>
 	);
 }
