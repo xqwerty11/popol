@@ -166,7 +166,7 @@ export default function Community() {
 					})}
 				</div>
 				<div className='smallBox'>
-					<h2>notice board</h2>
+					<img src='img/aaa.jpg' alt='' />
 				</div>
 			</section>
 		</Layout>
