@@ -15,7 +15,6 @@ export default function Gallery() {
 
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
-
 	const my_id = '199282981@N03';
 
 	const handleSubmit = (e) => {
@@ -110,38 +109,40 @@ export default function Gallery() {
 						disableImagesLoaded={false}
 						updateOnEachImageLoad={false}
 					>
-						{Pics.map((data, idx) => {
-							return (
-								<article key={idx}>
-									<div className='inner'>
-										<img
-											className='pic'
-											src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
-											alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
-											onClick={(e) => {
-												setActiveURL(e.target.getAttribute('alt'));
-												dispatch(open());
-											}}
-										/>
-										<h2>{data.title}</h2>
-
-										<div className='profile'>
+						{/* 해당 데이터가 어떤이유에서건 없을때 해당 객체안의 property를 호출할때 런타임 에러가 뜨는 경우이므로 배열값 자체가 없으면 렌더링을 안해서 property 오류해결 */}
+						{Pics.length !== 0 &&
+							Pics.map((data, idx) => {
+								return (
+									<article key={idx}>
+										<div className='inner'>
 											<img
-												src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
-												alt={data.owner}
-												onError={(e) => {
-													e.target.setAttribute(
-														'src',
-														'https://www.flickr.com/images/buddyicon.gif'
-													);
+												className='pic'
+												src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
+												alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
+												onClick={(e) => {
+													setActiveURL(e.target.getAttribute('alt'));
+													dispatch(open());
 												}}
 											/>
-											<span onClick={handleClickProfile}>{data.owner}</span>
+											<h2>{data.title}</h2>
+
+											<div className='profile'>
+												<img
+													src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
+													alt={data.owner}
+													onError={(e) => {
+														e.target.setAttribute(
+															'src',
+															'https://www.flickr.com/images/buddyicon.gif'
+														);
+													}}
+												/>
+												<span onClick={handleClickProfile}>{data.owner}</span>
+											</div>
 										</div>
-									</div>
-								</article>
-							);
-						})}
+									</article>
+								);
+							})}
 					</Masonry>
 				</div>
 			</Layout>
