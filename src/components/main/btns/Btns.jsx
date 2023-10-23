@@ -63,7 +63,7 @@ function Btns() {
 			//해당 컴포넌트 언마운트시 무조건 스크롤 y축을 0으로 이동
 			window.scrollTo(0, 0);
 		};
-	}, []);
+	}, [throttleActivation, throttledGetPos]);
 	return (
 		<ul className='scroll_navi' ref={refBtns}>
 			{Array(Num)

@@ -7,7 +7,6 @@ import { fetchFlickr } from '../../../redux/flickrSlice';
 import { open } from '../../../redux/modalSlice';
 import { useFlickrQuery } from '../../../hooks/useflickr';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 export default function Gallery() {
 	const dispatch = useDispatch();
