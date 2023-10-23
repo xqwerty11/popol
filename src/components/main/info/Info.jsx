@@ -5,6 +5,11 @@ function Info() {
 	return (
 		<section className='info myScroll'>
 			<h2>Welcome to The Art</h2>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. At doloremque quasi asperiores
+				reiciendis non, ratione laboriosam, iste fuga dolorum eligendi culpa dignissimos delectus,
+				odit beatae? Corrupti aperiam deserunt porro ipsum.
+			</p>
 			<div className='wrap'>
 				{isSuccess &&
 					data.map((pic, idx) => {

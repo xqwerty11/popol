@@ -5,7 +5,7 @@ export const GlobalContext = createContext();
 export function GlobalProvider({ children }) {
 	const [MenuOpen, setMenuOpen] = useState(false);
 	const [ModalOpen, setModalOpen] = useState(false);
-	const [Theme, setTheme] = useState(true);
+	const [Theme, setTheme] = useState(false);
 
 	return (
 		<GlobalContext.Provider
