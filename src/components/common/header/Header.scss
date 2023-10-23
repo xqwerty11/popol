@@ -18,7 +18,7 @@
 
 		li {
 			a.active {
-				color: hotpink;
+				color: rgb(42, 47, 49);
 			}
 		}
 	}
@@ -27,9 +27,12 @@
 		display: none;
 	}
 
-	.bthThema {
+	.bthTheme {
 		cursor: pointer;
-		color: red;
+		padding: 5px;
+		color: rgb(4, 4, 4);
+		text-align: center;
+		margin-left: 30px;
 	}
 }
 

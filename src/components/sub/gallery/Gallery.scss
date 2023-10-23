@@ -37,6 +37,10 @@
 			width: 50%;
 			height: 500px;
 			word-break: break-all;
+			.dark.txtBox {
+				background: var(--galleryBg);
+			}
+
 			h2 {
 				margin-top: 60px;
 				width: 100%;

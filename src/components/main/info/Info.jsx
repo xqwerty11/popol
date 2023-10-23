@@ -8,7 +8,7 @@ function Info() {
 			<div className='wrap'>
 				{isSuccess &&
 					data.map((pic, idx) => {
-						if (idx >= 6) return null;
+						if (idx >= 9) return null;
 						return (
 							<article key={idx}>
 								<img

@@ -127,28 +127,15 @@
 .laptop,
 .tablet {
 	.news {
-		.release {
-			&::before {
-				content: '';
-				display: block;
-				width: 70%;
-				height: 1px;
-				background-color: #555;
-				position: absolute;
-				top: 50%;
-				left: 0;
-				transform: translate(40%, 100%);
-			}
-		}
-
 		.conBox {
 			.txtBox {
 				width: 70%;
 
 				h2 {
-					width: 50%;
+					width: 100%;
 					display: flex;
 					align-items: center;
+					justify-content: center;
 				}
 
 				p {
@@ -168,9 +155,10 @@
 				width: 70%;
 
 				h2 {
-					width: 50%;
+					width: 100%;
 					display: flex;
 					align-items: center;
+					justify-content: center;
 				}
 
 				p {
@@ -189,28 +177,16 @@
 
 .mobile {
 	.news {
-		.release {
-			&::before {
-				content: '';
-				display: block;
-				width: 70%;
-				height: 1px;
-				background-color: #555;
-				position: absolute;
-				top: 50%;
-				left: 0;
-				transform: translate(100%, 100%);
-			}
-		}
-
 		.conBox {
 			.txtBox {
 				width: 70%;
 
 				h2 {
-					width: 50%;
+					width: 100%;
 					display: flex;
 					align-items: center;
+					font-size: 20px;
+					justify-content: center;
 				}
 
 				p {
@@ -230,9 +206,11 @@
 				width: 70%;
 
 				h2 {
-					width: 50%;
+					width: 100%;
 					display: flex;
 					align-items: center;
+					font-size: 20px;
+					justify-content: center;
 				}
 
 				p {
