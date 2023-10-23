@@ -3,7 +3,6 @@ import Layout from '../../common/layout/Layout';
 import './Gallery.scss';
 import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
-import { fetchFlickr } from '../../../redux/flickrSlice';
 import { open } from '../../../redux/modalSlice';
 import { useFlickrQuery } from '../../../hooks/useflickr';
 import { useDispatch } from 'react-redux';
@@ -29,7 +28,7 @@ export default function Gallery() {
 			return alert('검색어를 입력하세요.');
 		}
 
-		setOpt(fetchFlickr({ type: 'search', tags: refInput.current.value }));
+		setOpt({ type: 'search', tags: refInput.current.value });
 		refInput.current.value = '';
 	};
 
