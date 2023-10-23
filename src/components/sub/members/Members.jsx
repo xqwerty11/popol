@@ -134,12 +134,23 @@ export default function Members() {
 	//함수의 핸들러함수 호출의 빈도를 줄여줌
 	//useDebounce는 state의 변경횟수 자체를 줄이는게 아니라.
 	//해당 state에 따라 호출되는 함수의 빈도를 줄임
+	// useEffect(() => {
+	// 	const showCheck = () => {
+	// 		console.log('suowcheck');
+	// 		Mounted && setErrs(check(DebouncedVal));
+	// 	};
+	// 	//console.log('Val state값 변경에 의해서 showCheck함수 호출');
+	// 	showCheck();
+	// }, [DebouncedVal, Mounted]);
+
+	// useEffect(() => {
+	// 	return () => setMounted(false);
+	// }, []);
+
 	useEffect(() => {
 		const showCheck = () => {
-			console.log('suowcheck');
-			Mounted && setErrs(check(DebouncedVal));
+			setErrs(check(DebouncedVal));
 		};
-		//console.log('Val state값 변경에 의해서 showCheck함수 호출');
 		showCheck();
 	}, [DebouncedVal, Mounted]);
 
