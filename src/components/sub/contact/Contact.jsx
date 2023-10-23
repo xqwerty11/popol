@@ -1,7 +1,7 @@
 import Layout from '../../common/layout/Layout';
 import emailjs from '@emailjs/browser';
 import './Contact.scss';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 
 export default function Contact() {
 	const map = useRef(null);
@@ -38,20 +38,20 @@ export default function Contact() {
 		},
 	]);
 
-	const marker = new kakao.maps.Marker({
-		position: info.current[Index].latlng,
-		image: new kakao.maps.MarkerImage(
-			info.current[Index].imgSrc,
-			info.current[Index].imgSize,
-			info.current[Index].imgPos
-		),
-	});
-
-	const setCenter = () => {
+	const setCenter = useCallback(() => {
 		instance.current.setCenter(info.current[Index].latlng);
-	};
+	}, [Index]);
 
 	useEffect(() => {
+		const marker = new kakao.maps.Marker({
+			position: info.current[Index].latlng,
+			image: new kakao.maps.MarkerImage(
+				info.current[Index].imgSrc,
+				info.current[Index].imgSize,
+				info.current[Index].imgPos
+			),
+		});
+
 		map.current.innerHTML = '';
 
 		instance.current = new kakao.maps.Map(map.current, {
@@ -71,13 +71,13 @@ export default function Contact() {
 		});
 
 		return () => window.removeEventListener('resize', setCenter);
-	}, [Index]);
+	}, [Index, kakao, setCenter]);
 
 	useEffect(() => {
 		Traffic
 			? instance.current.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC)
 			: instance.current.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-	}, [Traffic]);
+	}, [Traffic, kakao]);
 
 	const resetForm = () => {
 		const nameForm = form.current.querySelector('.nameEl');
