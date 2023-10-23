@@ -8,23 +8,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import modalReducer from './redux/modalSlice';
-import menuReducer from './redux/menuSlice';
-
-const store = configureStore({
-	reducer: {
-		modal: modalReducer,
-		menu: menuReducer,
-	},
-});
+import { GlobalProvider } from './hooks/useGlobalContext';
 
 ReactDOM.render(
 	<BrowserRouter>
-		<Provider store={store}>
+		<GlobalProvider>
 			<App />
-		</Provider>
+		</GlobalProvider>
 	</BrowserRouter>,
 	document.getElementById('root')
 );
