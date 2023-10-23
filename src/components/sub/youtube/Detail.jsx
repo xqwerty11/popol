@@ -17,7 +17,7 @@ export default function Detail() {
 				console.log(json.items[0].snippet);
 				setData(json.items[0].snippet);
 			});
-	}, []);
+	}, [id]);
 
 	return (
 		<Layout title={'PLAY'}>
