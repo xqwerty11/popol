@@ -101,11 +101,17 @@
 			}
 			div {
 				width: 100%;
-				height: 100px;
+				height: 200px;
 				background: linear-gradient(100deg, white, gray);
 				display: flex;
 				justify-content: center;
 				align-items: center;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
 			}
 		}
 	}

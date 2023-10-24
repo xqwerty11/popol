@@ -71,6 +71,11 @@
 						}
 					}
 				}
+
+				p {
+					margin-top: 20px;
+					font-size: 15px;
+				}
 			}
 		}
 	}
@@ -98,6 +103,7 @@
 					position: absolute;
 					top: 0;
 					left: 0;
+					border-radius: 2%;
 					&:nth-of-type(1) {
 						filter: blur(30px) saturate(120%);
 						transform: translate(40px, 40px);

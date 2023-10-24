@@ -164,7 +164,10 @@ export default function Members() {
 				<h2>Lorem, ipsum dolor.</h2>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum.</p>
 
-				<div></div>
+				<div>
+					{' '}
+					<img src='img/img3.jpg' alt='' />
+				</div>
 			</section>
 
 			<form onSubmit={handleSubmit}>
