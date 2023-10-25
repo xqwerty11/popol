@@ -4,8 +4,14 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: rgb(106, 106, 106);
-	background: linear-gradient(65deg, rgba(106, 106, 106, 1) 0%, rgba(79, 87, 108, 1) 100%);
+	background: rgb(97, 97, 97);
+	background: linear-gradient(
+		65deg,
+		rgba(97, 97, 97, 1) 0%,
+		rgba(90, 95, 124, 1) 41%,
+		rgba(73, 71, 93, 1) 66%,
+		rgba(75, 63, 80, 1) 100%
+	);
 	color: #fff;
 	z-index: 5;
 	display: flex;
