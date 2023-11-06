@@ -2,8 +2,21 @@ import './Menu.scss';
 import { Link, NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useGlobalData } from '../../../hooks/useGlobalContext';
+import { useEffect } from 'react';
 function Menu() {
 	const { MenuOpen, setMenuOpen } = useGlobalData();
+	useEffect(() => {
+		//브라우저가 1000px이상 폭이 될때 setMeunuOpen(false) 로 메뉴를 닫는 핸들러 함수 정의
+		const closeMenu = () => {
+			const wid = window.innerWidth;
+			if (wid >= 1000) setMenuOpen(false);
+		};
+
+		//윈도우 전역 객체에 resize 이벤트 핸들러 연결
+		window.addEventListener('resize', closeMenu);
+		//해당 컴포넌트 언마운트시 이벤트 핸들러 제거
+		return () => window.removeEventListener('resize', closeMenu);
+	}, [setMenuOpen]);
 	return (
 		<AnimatePresence>
 			{MenuOpen && (
